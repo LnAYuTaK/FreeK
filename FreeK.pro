@@ -20,29 +20,43 @@ QT += \
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 FreeKName = "FreeKAPP"
-#===============================
 
+#===============================
+# C++ src
 INCLUDEPATH += \
             src/       \
             src/Module  \
             src/Map    \
             src/ViewPlugin \
             src/AppMsg
-
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
-    src/FreekApplication.cpp \
     src/Map/MapManager.cpp \
-    src/Module/ModuleBox.cpp \
     src/ViewPlugin/ViewPluginManager.cpp \
+    src/Module/ModuleBox.cpp \
+    src/FreekApplication.cpp \
     src/main.cpp
-
 HEADERS += \
     src/AppMsg/AppMsgManager.h \
     src/FreekApplication.h \
     src/Map/MapManager.h \
     src/Module/ModuleBox.h \
     src/ViewPlugin/ViewPluginManager.h
+
+#===================================
+#QML
+QML_IMPORT_PATH += $$PWD/src/QmlView
+
+
+
+
+
+
+
+#===================================
+#Resources
+RESOURCES += \
+    src/QmlView/qml.qrc
 
 #===============================
 #生成Makefile
@@ -56,7 +70,13 @@ QMAKE_CXXFLAGS += -source-charset:utf-8
 #程序版本
 VERSION  = 1.0
 #===============================
+#编译选项
 #DEFINES += NOTUSEDMAP
+
+
+
+
+
 
 
 
@@ -68,28 +88,20 @@ UI_DIR      = temp/ui
 OBJECTS_DIR = temp/obj
 #指定编译生成的可执行文件到bin目录
 DESTDIR     = bin
+#===============================
+#message(qt version: $$QT_VERSION)
+#message($$QT_ARCH)
 
 
 
 
 #===============================
-message(qt version: $$QT_VERSION)
-message($$QT_ARCH)
-
-
-
-
-
-#===================================
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
-# Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
+
 
 

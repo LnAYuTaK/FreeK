@@ -3,10 +3,12 @@
 
 #include <QObject>
 #include <QDebug>
+#include "FreekApplication.h"
 class FreeKApplication;
 class Module;
 class MapManager;
 class ViewPluginManager;
+
 
 //统一接口管理所有插件
 class ModuleBox : public QObject
@@ -25,7 +27,6 @@ private:
     MapManager *          _mapManager        =nullptr;
 #endif
     ViewPluginManager *   _viewPiuginManager =nullptr;
-
 
     //TUDO
     void checkModuleState();

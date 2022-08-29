@@ -13,7 +13,7 @@ void ViewPluginManager::setModuleBox(ModuleBox  *moduleBox) {
    _moduleBox = moduleBox;
 }
 
-QQmlApplicationEngine *ViewPluginManager::createdQmlEngine() {
+QQmlApplicationEngine *ViewPluginManager::_creatQmlEngine() {
     _qmlEngine =new  QQmlApplicationEngine(this);
     return _qmlEngine;
 }
@@ -23,25 +23,27 @@ QQmlApplicationEngine *ViewPluginManager::createdQmlEngine() {
 //    _mainRootWindow = qobject_cast<QQuickWindow*>(creatRootObject());
 //    return _mainRootWindow;
 //}
-void  ViewPluginManager::_createdMainWindow () {
+
+//*一定要保证
+void  ViewPluginManager::_creatMainWindow () {
 
    // _qmlEngine.load()
    _qmlEngine->addImportPath("qrc:/qml");
-
-
-
-
-
-
+   _qmlEngine->load("qrc:/qml/MainRootWindow.qml");
 }
 
-QObject* ViewPluginManager::creatRootObject() {
+QObject* ViewPluginManager::_creatRootObject() {
     if(_qmlEngine!=nullptr){
         return _qmlEngine->rootObjects()[0];
     }
     else{
         return nullptr;
     }
+}
+void   ViewPluginManager::initViewPlugin()
+{
+    this->_creatQmlEngine();
+    this->_creatMainWindow();
 }
 
 

@@ -21,7 +21,7 @@ public:
     ModuleBox * moduleBox(){return _moduleBox;}
 public :
     void initAppCommon();
-
+    void initAppView();
 private:
     ModuleBox *              _moduleBox;
     QQmlApplicationEngine*   _qmlAppEngine;

@@ -1,7 +1,6 @@
 #include "FreekApplication.h"
-#include <QQmlApplicationEngine>
 #include "ModuleBox.h"
-
+#include "ViewPluginManager.h"
 FreeKApplication* FreeKApplication::_app = nullptr;
 FreeKApplication::FreeKApplication(int &argc, char* argv[])
    :QApplication(argc, argv)
@@ -11,7 +10,6 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
      _app = this;
      //实例化工具插件
      _moduleBox = new ModuleBox(this);
-
      _moduleBox->setChildBoxes();
 }
 
@@ -47,3 +45,11 @@ void FreeKApplication::initAppCommon() {
 
 
 }
+
+void FreeKApplication::initAppView() {
+    //_qmlAppEngine = FreeKApp()->moduleBox()->viewPiuginManager()->createdQmlEngine();
+
+}
+
+
+

@@ -14,12 +14,13 @@ public:
     ViewPluginManager (FreeKApplication *app , ModuleBox  * moduleBox);
     void setModuleBox (ModuleBox  * moduleBox)override ;
 
-    QQmlApplicationEngine *  createdQmlEngine    ();
-    QObject*                 creatRootObject     ();
-
+    QQmlApplicationEngine *  qmlEngine()         {return _qmlEngine;}
+    void initViewPlugin();
 private:
    // QQuickWindow *         _createdMainWindow  ();
-    void                     _createdMainWindow  ();
+    QQmlApplicationEngine *  _creatQmlEngine    ();
+    QObject*                 _creatRootObject     ();
+    void                     _creatMainWindow  ();
     ModuleBox *              _moduleBox;
     QQmlApplicationEngine *  _qmlEngine;
     QQuickWindow *           _mainRootWindow;
