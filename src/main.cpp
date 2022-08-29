@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include "FreekApplication.h"
+
 int main(int argc, char *argv[])
 {
 
@@ -14,4 +15,5 @@ int main(int argc, char *argv[])
          app->exec();
     }
     app->deleteLater();
+    qDebug() <<"Program exit";
 }

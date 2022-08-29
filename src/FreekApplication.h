@@ -3,6 +3,9 @@
 
 #include <QApplication>
 #include <QObject>
+class QQmlApplicationEngine;
+class ModuleBox;
+
 class FreeKApplication : public QApplication
 {
     Q_OBJECT
@@ -11,23 +14,21 @@ public:
     ~FreeKApplication();
 
     bool event(QEvent *e) override;
-    //语言翻译
-    void setLanguage();
-
-
     bool checkErrorState();
-
     static FreeKApplication*  _app;
+    QString name()           {return _name;}
 
-
-    QString name ;
-
-
-
+    ModuleBox * moduleBox(){return _moduleBox;}
 public :
-    void _initAppCommon();
+    void initAppCommon();
 
-
+private:
+    ModuleBox *              _moduleBox;
+    QQmlApplicationEngine*   _qmlAppEngine;
+    void                     _exitWithError    (QString errorMessage);
+//
+    QObject *                _creatRootObject();
+    static QString _name;
 
 };
 FreeKApplication* FreeKApp(void);
