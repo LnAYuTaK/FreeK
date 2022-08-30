@@ -16,8 +16,6 @@ void ViewPluginManager::setModuleBox(ModuleBox  *moduleBox) {
 QQmlApplicationEngine *ViewPluginManager::_creatQmlEngine() {
     _qmlEngine =new  QQmlApplicationEngine(this);
     return _qmlEngine;
-
-
 }
 
 //注册完之后运行

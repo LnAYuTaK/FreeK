@@ -34,6 +34,7 @@ INCLUDEPATH += \
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
     src/Map/MapManager.cpp \
+    src/ScreenTool.cpp \
     src/Test/test.cpp \
     src/ViewPlugin/ViewPluginManager.cpp \
     src/Module/ModuleBox.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     src/FreekApplication.h \
     src/Map/MapManager.h \
     src/Module/ModuleBox.h \
+    src/ScreenTool.h \
     src/Test/test.h \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h

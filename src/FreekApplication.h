@@ -3,8 +3,10 @@
 
 #include <QApplication>
 #include <QObject>
+#include <QQmlEngine>
 class QQmlApplicationEngine;
 class ModuleBox;
+class ScreenTool;
 
 class FreeKApplication : public QApplication
 {
@@ -28,6 +30,9 @@ private:
     void                     _exitWithError    (QString errorMessage);
 //
     QObject *                _creatRootObject();
+
+    //static ScreenTool *      _creatScreen(QQmlEngine *engine, QJSEngine *scriptEngine);
+
     static QString _name;
 
 };
