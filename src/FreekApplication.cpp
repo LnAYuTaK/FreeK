@@ -1,6 +1,7 @@
 #include "FreekApplication.h"
 #include "ModuleBox.h"
 #include "ViewPluginManager.h"
+#include "ViewSetup.h"
 FreeKApplication* FreeKApplication::_app = nullptr;
 FreeKApplication::FreeKApplication(int &argc, char* argv[])
    :QApplication(argc, argv)
@@ -14,7 +15,7 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
 }
 
 FreeKApplication::~FreeKApplication() {
-
+    _moduleBox->deleteLater();
 }
 
 //全局单例接口
@@ -24,13 +25,22 @@ FreeKApplication* FreeKApp(void) {
 
 bool FreeKApplication::checkErrorState() {
 
-     return true;
+     return false;
 }
 
+//close Windows
 bool FreeKApplication::event(QEvent *e) {
      Q_UNUSED(e)
-     return true;
+     if (e->type() == QEvent::Quit){
+       FreeKApp()->moduleBox()->viewPiuginManager()->mainRootWindow()->close();
+       this->exit();
+     }
+     return QApplication::event(e);
+
 }
+
+
+
 
 //QObject* FreeKApplication::_creatRootObject() {
 //    if(_qmlAppEngine!=nullptr){
@@ -43,13 +53,22 @@ bool FreeKApplication::event(QEvent *e) {
 
 void FreeKApplication::initAppCommon() {
 
+//qmlRegisterSingletonType<ViewSetup>     ("FreeK.ViewSetup",    1, 0, "ViewSetup",  ViewSetup);
+
+
+
+
 
 }
 
 void FreeKApplication::initAppView() {
     //_qmlAppEngine = FreeKApp()->moduleBox()->viewPiuginManager()->createdQmlEngine();
-
+    FreeKApp()->moduleBox()->viewPiuginManager()->initViewPlugin();
 }
+
+
+
+
 
 
 

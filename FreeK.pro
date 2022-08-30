@@ -28,20 +28,26 @@ INCLUDEPATH += \
             src/Module  \
             src/Map    \
             src/ViewPlugin \
-            src/AppMsg
+            src/AppMsg   \
+            src/ViewSetup \
+            src/Test
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
     src/Map/MapManager.cpp \
+    src/Test/test.cpp \
     src/ViewPlugin/ViewPluginManager.cpp \
     src/Module/ModuleBox.cpp \
     src/FreekApplication.cpp \
+    src/ViewSetup/ViewSetup.cpp \
     src/main.cpp
 HEADERS += \
     src/AppMsg/AppMsgManager.h \
     src/FreekApplication.h \
     src/Map/MapManager.h \
     src/Module/ModuleBox.h \
-    src/ViewPlugin/ViewPluginManager.h
+    src/Test/test.h \
+    src/ViewPlugin/ViewPluginManager.h \
+    src/ViewSetup/ViewSetup.h
 
 #===================================
 #QML
@@ -64,9 +70,9 @@ TEMPLATE = app
 #C11
 CONFIG += c++11
  #程序执行使用使用UTF-8
-QMAKE_CXXFLAGS += -execution-charset:utf-8
+#QMAKE_CXXFLAGS += -execution-charset:utf-8
  #编译器使用UTF-8
-QMAKE_CXXFLAGS += -source-charset:utf-8
+#QMAKE_CXXFLAGS += -source-charset:utf-8
 #程序版本
 VERSION  = 1.0
 #===============================
@@ -100,6 +106,18 @@ DESTDIR     = bin
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/gradle.properties \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat \
+    android/res/values/libs.xml
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
 
 

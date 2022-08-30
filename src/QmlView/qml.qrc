@@ -2,4 +2,24 @@
     <qresource prefix="/qml">
         <file>MainRootWindow.qml</file>
     </qresource>
+    <qresource prefix="/images">
+        <file alias="chuangjianrenwu.svg">../../resources/images/chuangjianrenwu.svg</file>
+        <file alias="dingweizuobiao.svg">../../resources/images/dingweizuobiao.svg</file>
+        <file alias="lajishanchu.svg">../../resources/images/lajishanchu.svg</file>
+        <file alias="renwubaocuo.svg">../../resources/images/renwubaocuo.svg</file>
+        <file alias="renwuguanli.svg">../../resources/images/renwuguanli.svg</file>
+        <file alias="renwujilu.svg">../../resources/images/renwujilu.svg</file>
+        <file alias="renwuliebiao.svg">../../resources/images/renwuliebiao.svg</file>
+        <file alias="renwushezhi.svg">../../resources/images/renwushezhi.svg</file>
+        <file alias="renwushibai.svg">../../resources/images/renwushibai.svg</file>
+        <file alias="renwuwancheng.svg">../../resources/images/renwuwancheng.svg</file>
+        <file alias="renwuxiugai.svg">../../resources/images/renwuxiugai.svg</file>
+        <file alias="shanchuwenjian.svg">../../resources/images/shanchu.svg</file>
+        <file alias="shanchuwenjian.svg">../../resources/images/shanchuwenjian.svg</file>
+        <file alias="shanchuzhong.svg">../../resources/images/shanchuzhong.svg</file>
+        <file alias="wangluo.svg">../../resources/images/wangluo.svg</file>
+        <file alias="wenjianjia.svg">../../resources/images/wenjianjia.svg</file>
+        <file alias="wenjianshanchu.svg">../../resources/images/wenjianshanchu.svg</file>
+        <file alias="wenjianzengjia3.svg">../../resources/images/wenjianzengjia3.svg</file>
+    </qresource>
 </RCC>

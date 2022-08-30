@@ -6,7 +6,7 @@
 #include "qqmlapplicationengine.h"
 #include <QQuickWindow>
 class  FreeKApplication;
-//主界面
+///QML主界面和 QML引擎的初始化
 class ViewPluginManager :public Module
 {
     Q_OBJECT
@@ -15,6 +15,8 @@ public:
     void setModuleBox (ModuleBox  * moduleBox)override ;
 
     QQmlApplicationEngine *  qmlEngine()         {return _qmlEngine;}
+    QQuickWindow *           mainRootWindow();
+
     void initViewPlugin();
 private:
    // QQuickWindow *         _createdMainWindow  ();
@@ -22,6 +24,7 @@ private:
     QObject*                 _creatRootObject     ();
     void                     _creatMainWindow  ();
     ModuleBox *              _moduleBox;
+    //qml
     QQmlApplicationEngine *  _qmlEngine;
     QQuickWindow *           _mainRootWindow;
 };

@@ -2,6 +2,7 @@
 #include "ViewPluginManager.h"
 #include "MapManager.h"
 #include "FreekApplication.h"
+#include "ViewSetup.h"
 ModuleBox::ModuleBox(FreeKApplication * app)
 {
   //初始化所有模块
@@ -10,6 +11,8 @@ ModuleBox::ModuleBox(FreeKApplication * app)
     _mapManager       = new   MapManager       (app,this);
   #endif
    _viewPiuginManager = new   ViewPluginManager(app,this);
+
+
 }
 //
 void ModuleBox::setChildBoxes(void)
@@ -19,7 +22,6 @@ void ModuleBox::setChildBoxes(void)
   _mapManager ->setModuleBox(this);
 #endif
   _viewPiuginManager->setModuleBox(this);
-
 }
 
 Module::Module(FreeKApplication * app,ModuleBox *moduleBox)

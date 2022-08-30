@@ -19,9 +19,9 @@ public:
     void setChildBoxes(void);
 
 #if !defined(NOTUSEDMAP)
-    MapManager *         mapManager()        {this->_mapManager;}
+    MapManager *         mapManager()        {return this->_mapManager;}
 #endif
-    ViewPluginManager *  viewPiuginManager() {this->_viewPiuginManager;}
+    ViewPluginManager *  viewPiuginManager() {return this->_viewPiuginManager;}
 private:
 #if !defined(NOTUSEDMAP)
     MapManager *          _mapManager        =nullptr;

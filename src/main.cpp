@@ -12,8 +12,17 @@ int main(int argc, char *argv[])
     FreeKApplication* app = new FreeKApplication(argc, argv);
     Q_CHECK_PTR(app);
     if(app->checkErrorState()){
-         app->exec();
+        app->exec();
+        return -1;
     }
-    app->deleteLater();
+
+    {
+    //插件初始化
+    app->initAppCommon();
+    //视图初始化
+    app->initAppView();
+    app->exec();
+    }
+
     qDebug() <<"Program exit";
 }
