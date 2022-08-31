@@ -2,7 +2,7 @@ import QtQuick          2.11
 import QtQuick.Controls 2.5
 import QtQuick.Dialogs  1.3
 import QtQuick.Layouts  1.11
-import QtQuick.Window   2.14
+import QtQuick.Window   2.11
 import FreeK.ViewSetup.ScreenTool 1.0
 //import FreeK.MapManager 1.0
 ApplicationWindow {
@@ -14,6 +14,7 @@ ApplicationWindow {
     background: Rectangle {
         color: "#F7F7F7"
     }
+    //安卓全屏//
      Component.onCompleted: {
          if(ScreenTool.isAndroid){
             mainWindow.showFullScreen()
@@ -25,11 +26,16 @@ ApplicationWindow {
      }
 
     menuBar: HeaderBar{
-         // ...
         id:         headerBar
-        height:     ScreenTool.defaultToolBarHeight*2
+        height:     ScreenTool.defaultToolBarHeight*3
         visible:    true
      }
+
+
+    background: Item {
+        id:             rootBackground
+        anchors.fill:   parent
+    }
 
      footer: TabBar {
          // ...

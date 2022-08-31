@@ -30,11 +30,14 @@ INCLUDEPATH += \
             src/ViewPlugin \
             src/AppMsg   \
             src/ViewSetup \
-            src/Test
+            src/Test  \
+            src/Settings
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
     src/Map/MapManager.cpp \
     src/ScreenTool.cpp \
+    src/Settings/AppSetting.cpp \
+    src/Settings/SettingsManager.cpp \
     src/Test/test.cpp \
     src/ViewPlugin/ViewPluginManager.cpp \
     src/Module/ModuleBox.cpp \
@@ -47,6 +50,8 @@ HEADERS += \
     src/Map/MapManager.h \
     src/Module/ModuleBox.h \
     src/ScreenTool.h \
+    src/Settings/AppSetting.h \
+    src/Settings/SettingsManager.h \
     src/Test/test.h \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h

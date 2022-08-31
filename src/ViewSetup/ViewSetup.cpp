@@ -22,7 +22,7 @@ void ViewSetup::setModuleBox(ModuleBox  *moduleBox) {
    qmlRegisterUncreatableType<ViewSetup>("FreeK.ViewSetup", 1, 0, "ViewSetup", "Reference only");
 
    ///单例
-   qmlRegisterSingletonType<ScreenTool>     ("FreeK.ViewSetup.ScreenTool",    1, 0, "ScreenTool",screenTool);
+   qmlRegisterSingletonType<ScreenTool> ("FreeK.ViewSetup.ScreenTool", 1, 0,"ScreenTool",screenTool);
 
 }
 

@@ -12,6 +12,7 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
    ,_qmlAppEngine (nullptr)
 {
      _app = this;
+     this->setApplicationName("FreeK");
      //实例化工具插件
      _moduleBox = new ModuleBox(this);
      _moduleBox->setChildBoxes();
@@ -47,7 +48,7 @@ bool FreeKApplication::event(QEvent *e) {
 void FreeKApplication::initAppCommon() {
 
     //全局单例注册
-   // qmlRegisterSingletonType<ScreenTool>     ("FreeK.ScreenTool",    1, 0, "ScreenTool",_creatScreen);
+    //qmlRegisterSingletonType<ScreenTool>     ("FreeK.ScreenTool",    1, 0, "ScreenTool",_creatScreen);
 
     //统一注册到qml
     //

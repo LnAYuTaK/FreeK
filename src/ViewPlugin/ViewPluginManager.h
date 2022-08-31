@@ -19,7 +19,6 @@ public:
 
     void initViewPlugin();
 private:
-   // QQuickWindow *         _createdMainWindow  ();
     QQmlApplicationEngine *  _creatQmlEngine    ();
     QObject*                 _creatRootObject     ();
     void                     _creatMainWindow  ();

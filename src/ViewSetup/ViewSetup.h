@@ -4,7 +4,8 @@
 #include <QObject>
 #include "ModuleBox.h"
 class  FreeKApplication;
-///设置主视图一些显示逻辑
+/// \brief The ViewSetup class
+///主视图显示窗口
 class ViewSetup : public Module
 {
     Q_OBJECT
@@ -13,9 +14,8 @@ public:
     void setModuleBox (ModuleBox  * moduleBox)override ;
 
     static ScreenTool *screenTool(QQmlEngine *, QJSEngine *);
-
 private:
-   static  ScreenTool *_screenTool;
+    static  ScreenTool *_screenTool;
 };
 
 #endif // VIEWSETUP_H

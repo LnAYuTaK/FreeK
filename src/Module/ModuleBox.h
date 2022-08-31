@@ -8,6 +8,7 @@ class Module;
 class MapManager;
 class ViewPluginManager;
 class ViewSetup;
+class SettingsManager;
 //统一接口管理所有插件
 class ModuleBox : public QObject
 {
@@ -16,20 +17,19 @@ public:
     ModuleBox(FreeKApplication * app);
     void setChildBoxes(void);
 
+    SettingsManager *     settingsManager()   {return this->_settingsManager;}
 #if !defined(NOTUSEDMAP)
-    MapManager *         mapManager()        {return this->_mapManager;}
+    MapManager *          mapManager()        {return this->_mapManager;}
 #endif
-    ViewPluginManager *  viewPiuginManager() {return this->_viewPiuginManager;}
+    ViewPluginManager *   viewPiuginManager() {return this->_viewPiuginManager;}
 private:
+    SettingsManager*      _settingsManager    =nullptr;
 #if !defined(NOTUSEDMAP)
-    MapManager *          _mapManager        =nullptr;
+    MapManager *          _mapManager         =nullptr;
 #endif
-    ViewPluginManager *   _viewPiuginManager =nullptr;
+    ViewPluginManager *   _viewPiuginManager  =nullptr;
 
-    ViewSetup *           _viewSetup         =nullptr;
-
-
-
+    ViewSetup *           _viewSetup          =nullptr;
 
     //TUDO
     void checkModuleState();
