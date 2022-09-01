@@ -4,6 +4,8 @@ import QtQuick.Dialogs  1.3
 import QtQuick.Layouts  1.11
 import QtQuick.Window   2.11
 import FreeK.ViewSetup.ScreenTool 1.0
+import QtPositioning 5.12
+import QtLocation 5.12
 //import FreeK.MapManager 1.0
 ApplicationWindow {
     id:mainWindow
@@ -32,11 +34,6 @@ ApplicationWindow {
      }
 
 
-    background: Item {
-        id:             rootBackground
-        anchors.fill:   parent
-    }
-
      footer: TabBar {
          // ...
      }
@@ -44,8 +41,6 @@ ApplicationWindow {
      StackView {
          anchors.fill: parent
      }
-
-
 
 
 }

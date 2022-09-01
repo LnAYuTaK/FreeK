@@ -9,7 +9,6 @@ class AppSetting : public QObject
     Q_OBJECT
 public:
 
-
     explicit AppSetting(QObject *parent = nullptr);
     Q_PROPERTY(QString savePath          READ savePath       CONSTANT)
     Q_PROPERTY(QString logSavePath       READ logSavePath    CONSTANT)

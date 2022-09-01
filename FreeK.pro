@@ -14,7 +14,9 @@ QT += \
     widgets \
     xml \
     texttospeech \
-    core-private
+    core-private \
+    location-private \
+    positioning-private
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -34,7 +36,16 @@ INCLUDEPATH += \
             src/Settings
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
+    src/Map/MapEngine.cpp \
     src/Map/MapManager.cpp \
+    src/Map/MapTask.cpp \
+    src/Map/MapTaskWorker.cpp \
+   #src/Map/QGeoCodeReplyFreeK.cpp \
+   #src/Map/QGeoCodingManagerEngineFreeK.cpp \
+   src/Map/QGeoMapReplyFreeK.cpp \
+   src/Map/QGeoServiceProviderPluginFreeK.cpp \
+   src/Map/QGeoTileFetcherFreeK.cpp \
+   src/Map/QGeoTiledMappingManagerEngineFreeK.cpp \
     src/ScreenTool.cpp \
     src/Settings/AppSetting.cpp \
     src/Settings/SettingsManager.cpp \
@@ -47,7 +58,16 @@ SOURCES += \
 HEADERS += \
     src/AppMsg/AppMsgManager.h \
     src/FreekApplication.h \
+    src/Map/MapEngine.h \
     src/Map/MapManager.h \
+    src/Map/MapTask.h \
+    src/Map/MapTaskWorker.h \
+   #src/Map/QGeoCodeReplyFreeK.h \
+   #src/Map/QGeoCodingManagerEngineFreeK.h \
+   src/Map/QGeoMapReplyFreeK.h \
+   src/Map/QGeoServiceProviderPluginFreeK.h \
+   src/Map/QGeoTileFetcherFreeK.h \
+   src/Map/QGeoTiledMappingManagerEngineFreeK.h \
     src/Module/ModuleBox.h \
     src/ScreenTool.h \
     src/Settings/AppSetting.h \
@@ -56,15 +76,16 @@ HEADERS += \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h
 
+
 #===================================
 #QML
 QML_IMPORT_PATH += $$PWD/src/QmlView
 
 
-
-
-
-
+# Workaround for QTBUG-38735
+#QT_FOR_CONFIG += location-private
+#qtConfig(geoservices_mapboxgl): QT += sql opengl
+#qtConfig(geoservices_osm): QT += concurrent
 
 #===================================
 #Resources
@@ -73,9 +94,10 @@ RESOURCES += \
 
 #===============================
 #生成Makefile
-TEMPLATE = app
+#TEMPLATE = app
 #C11
 CONFIG += c++11
+CONFIG += plugin
  #程序执行使用使用UTF-8
 #QMAKE_CXXFLAGS += -execution-charset:utf-8
  #编译器使用UTF-8
@@ -85,12 +107,8 @@ VERSION  = 1.0
 #===============================
 #编译选项
 #DEFINES += NOTUSEDMAP
-
-
-
-
-
-
+DISTFILES += \
+    $$PWD/src/Map/freek_maps_plugin.json
 
 
 #===============================
@@ -99,14 +117,15 @@ MOC_DIR     = temp/moc
 RCC_DIR     = temp/rcc
 UI_DIR      = temp/ui
 OBJECTS_DIR = temp/obj
+
 #指定编译生成的可执行文件到bin目录
 DESTDIR     = bin
+#TEMPLATE=lib
+#CONFIG     += plugin
+
 #===============================
 #message(qt version: $$QT_VERSION)
 #message($$QT_ARCH)
-
-
-
 
 #===============================
 # Default rules for deployment.
