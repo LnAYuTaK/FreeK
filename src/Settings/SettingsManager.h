@@ -14,11 +14,12 @@ public:
     void setModuleBox (ModuleBox  * moduleBox)override ;
     Q_PROPERTY(AppSetting *appSetting    READ appSetting    CONSTANT)
 
-
-
     Q_INVOKABLE AppSetting * appSetting(){return _appsetting;}
 private:
     AppSetting  * _appsetting;
+
+    //MapSetting//
+    //LinkSetting//
 
 };
 

@@ -33,6 +33,5 @@ SOURCES += \
     $$PWD/QGeoTileFetcherFreeK.cpp \
     $$PWD/QGeoTiledMappingManagerEngineFreeK.cpp
 
-
 OTHER_FILES += \
     $$PWD/freek_maps_plugin.json

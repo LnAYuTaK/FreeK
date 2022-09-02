@@ -9,6 +9,7 @@ class MapManager;
 class ViewPluginManager;
 class ViewSetup;
 class SettingsManager;
+class PositionManager;
 //统一接口管理所有插件
 class ModuleBox : public QObject
 {
@@ -22,6 +23,8 @@ public:
     MapManager *          mapManager()        {return this->_mapManager;}
 #endif
     ViewPluginManager *   viewPiuginManager() {return this->_viewPiuginManager;}
+    PositionManager *     positionManager()   {return this->_positionManager;}
+
 private:
     SettingsManager*      _settingsManager    =nullptr;
 #if !defined(NOTUSEDMAP)
@@ -31,6 +34,7 @@ private:
 
     ViewSetup *           _viewSetup          =nullptr;
 
+    PositionManager *     _positionManager   =nullptr;
     //TUDO
     void checkModuleState();
 

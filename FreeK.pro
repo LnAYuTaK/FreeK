@@ -34,7 +34,8 @@ INCLUDEPATH += \
             src/AppMsg   \
             src/ViewSetup \
             src/Test  \
-            src/Settings
+            src/Settings \
+            src/Position
 
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
@@ -42,6 +43,7 @@ SOURCES += \
     src/Map/MapManager.cpp \
     src/Map/MapTask.cpp \
     src/Map/MapTaskWorker.cpp \
+    src/Position/PositionManager.cpp \
     src/ScreenTool.cpp \
     src/Settings/AppSetting.cpp \
     src/Settings/SettingsManager.cpp \
@@ -51,6 +53,7 @@ SOURCES += \
     src/FreekApplication.cpp \
     src/ViewSetup/ViewSetup.cpp \
     src/main.cpp
+
 HEADERS += \
     src/AppMsg/AppMsgManager.h \
     src/FreekApplication.h \
@@ -59,6 +62,7 @@ HEADERS += \
     src/Map/MapTask.h \
     src/Map/MapTaskWorker.h \
     src/Module/ModuleBox.h \
+    src/Position/PositionManager.h \
     src/ScreenTool.h \
     src/Settings/AppSetting.h \
     src/Settings/SettingsManager.h \
@@ -66,11 +70,11 @@ HEADERS += \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h
 
+#===================================
 #地图插件
 include($$PWD/src/FreeKMapPlugin/FreeKMapPlugin.pri)
 LOCATION_PLUGIN_DESTDIR = $${OUT_PWD}/src/FreeMapPlugin
 LOCATION_PLUGIN_NAME    = GeoServiceProviderFactoryFreeK
-
 #===================================
 #QML
 QML_IMPORT_PATH += $$PWD/src/QmlView

@@ -72,8 +72,6 @@ QGeoTileFetcherFreeK::QGeoTileFetcherFreeK(QGeoTiledMappingManagerEngine *parent
     connect(&_timer, &QTimer::timeout, this, &QGeoTileFetcherFreeK::timeout);
     _timer.setSingleShot(false);
     _timer.start(30000);
-
-
 }
 
 //-----------------------------------------------------------------------------

@@ -4,8 +4,8 @@ import QtQuick.Dialogs  1.3
 import QtQuick.Layouts  1.11
 import QtQuick.Window   2.11
 import FreeK.ViewSetup.ScreenTool 1.0
-import QtPositioning 5.12
-import QtLocation 5.12
+import QtPositioning 5.4
+import QtLocation 5.4
 //import FreeK.MapManager 1.0
 ApplicationWindow {
     id:mainWindow
@@ -42,17 +42,18 @@ ApplicationWindow {
          anchors.fill: parent
      }
 
-//     Map {
-//         id: maps
-//         anchors.fill: parent
-//         minimumZoomLevel: 3
-//         maximumZoomLevel: 16
-//         zoomLevel: 10
-//         center: QtPositioning.coordinate(30.67, 104.06)
-//         plugin: Plugin {
-//             name: "freekmap"
-//         }
-//     }
+     Map {
+         id: maps
+         anchors.fill: parent
+         minimumZoomLevel: 3
+         maximumZoomLevel: 16
+         zoomLevel: 10
+         center: QtPositioning.coordinate(37.52, 121.39)
+         plugin: Plugin {
+             name: "freekmap"
+         }
+
+     }
 
 
 }
