@@ -1,9 +1,0 @@
-{
-    "Keys": ["freeKMap"],
-    "Provider": "freeKMap",
-    "Version": 101,
-    "Experimental": false,
-    "Features": [
-        "OnlineMappingFeature"
-    ]
-}

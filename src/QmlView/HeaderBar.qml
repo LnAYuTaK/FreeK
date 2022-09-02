@@ -7,7 +7,7 @@ import FreeK.ViewSetup.ScreenTool 1.0
 
 Rectangle {
 
-  color:  "black"
+  color :"transparent"
 
 
 

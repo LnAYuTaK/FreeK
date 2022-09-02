@@ -23,5 +23,6 @@
         <file alias="wenjianjia.svg">../../resources/images/wenjianjia.svg</file>
         <file alias="wenjianshanchu.svg">../../resources/images/wenjianshanchu.svg</file>
         <file alias="wenjianzengjia3.svg">../../resources/images/wenjianzengjia3.svg</file>
+        <file alias="notile.png">../../resources/images/notile.png</file>
     </qresource>
 </RCC>

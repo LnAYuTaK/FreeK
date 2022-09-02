@@ -1,10 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
 #include "FreekApplication.h"
-
+#include <QtPlugin>
 int main(int argc, char *argv[])
 {
+    //加载地图插件
+    Q_IMPORT_PLUGIN(QGeoServiceProviderFactoryFreeK);
+
+
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);

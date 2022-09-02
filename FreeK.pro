@@ -29,23 +29,19 @@ INCLUDEPATH += \
             src/       \
             src/Module  \
             src/Map    \
+            src/FreeMapPlugin\
             src/ViewPlugin \
             src/AppMsg   \
             src/ViewSetup \
             src/Test  \
             src/Settings
+
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
     src/Map/MapEngine.cpp \
     src/Map/MapManager.cpp \
     src/Map/MapTask.cpp \
     src/Map/MapTaskWorker.cpp \
-   #src/Map/QGeoCodeReplyFreeK.cpp \
-   #src/Map/QGeoCodingManagerEngineFreeK.cpp \
-   src/Map/QGeoMapReplyFreeK.cpp \
-   src/Map/QGeoServiceProviderPluginFreeK.cpp \
-   src/Map/QGeoTileFetcherFreeK.cpp \
-   src/Map/QGeoTiledMappingManagerEngineFreeK.cpp \
     src/ScreenTool.cpp \
     src/Settings/AppSetting.cpp \
     src/Settings/SettingsManager.cpp \
@@ -62,12 +58,6 @@ HEADERS += \
     src/Map/MapManager.h \
     src/Map/MapTask.h \
     src/Map/MapTaskWorker.h \
-   #src/Map/QGeoCodeReplyFreeK.h \
-   #src/Map/QGeoCodingManagerEngineFreeK.h \
-   src/Map/QGeoMapReplyFreeK.h \
-   src/Map/QGeoServiceProviderPluginFreeK.h \
-   src/Map/QGeoTileFetcherFreeK.h \
-   src/Map/QGeoTiledMappingManagerEngineFreeK.h \
     src/Module/ModuleBox.h \
     src/ScreenTool.h \
     src/Settings/AppSetting.h \
@@ -76,6 +66,10 @@ HEADERS += \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h
 
+#地图插件
+include($$PWD/src/FreeKMapPlugin/FreeKMapPlugin.pri)
+LOCATION_PLUGIN_DESTDIR = $${OUT_PWD}/src/FreeMapPlugin
+LOCATION_PLUGIN_NAME    = GeoServiceProviderFactoryFreeK
 
 #===================================
 #QML
@@ -97,7 +91,7 @@ RESOURCES += \
 #TEMPLATE = app
 #C11
 CONFIG += c++11
-CONFIG += plugin
+
  #程序执行使用使用UTF-8
 #QMAKE_CXXFLAGS += -execution-charset:utf-8
  #编译器使用UTF-8
@@ -107,32 +101,26 @@ VERSION  = 1.0
 #===============================
 #编译选项
 #DEFINES += NOTUSEDMAP
-DISTFILES += \
-    $$PWD/src/Map/freek_maps_plugin.json
-
-
+#DISTFILES += \
+#    src/FreeKMapPlugin/FreeKMapPlugin.pri \
+#    src/FreeKMapPlugin/freek_maps_plugin.json \
+#    src/Map/FreeKMapPlugin/FreeKMapPlugin.pri
 #===============================
 #指定编译生成的文件到temp目录 分门别类存储
 MOC_DIR     = temp/moc
 RCC_DIR     = temp/rcc
 UI_DIR      = temp/ui
 OBJECTS_DIR = temp/obj
-
-#指定编译生成的可执行文件到bin目录
 DESTDIR     = bin
-#TEMPLATE=lib
-#CONFIG     += plugin
-
-#===============================
-#message(qt version: $$QT_VERSION)
-#message($$QT_ARCH)
-
+#指定编译生成的可执行文件到bin目录
 #===============================
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+#===============================
+#ANDROID
 DISTFILES += \
     android/AndroidManifest.xml \
     android/build.gradle \

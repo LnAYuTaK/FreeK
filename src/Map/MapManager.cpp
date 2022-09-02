@@ -1,5 +1,4 @@
 #include "MapManager.h"
-#include "QGeoServiceProviderPluginFreeK.h"
 MapManager::MapManager(FreeKApplication *app , ModuleBox  * moduleBox)
     :Module(app,moduleBox)
 {

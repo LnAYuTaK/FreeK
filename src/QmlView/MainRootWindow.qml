@@ -42,5 +42,17 @@ ApplicationWindow {
          anchors.fill: parent
      }
 
+//     Map {
+//         id: maps
+//         anchors.fill: parent
+//         minimumZoomLevel: 3
+//         maximumZoomLevel: 16
+//         zoomLevel: 10
+//         center: QtPositioning.coordinate(30.67, 104.06)
+//         plugin: Plugin {
+//             name: "freekmap"
+//         }
+//     }
+
 
 }
