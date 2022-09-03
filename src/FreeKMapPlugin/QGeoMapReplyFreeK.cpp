@@ -51,7 +51,7 @@
 #include <QtLocation/private/qgeotilespec_p.h>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QFile>
-//#include "TerrainTile.h"
+
 
 int         QGeoTiledMapReplyFreeK::_requestCount = 0;
 QByteArray  QGeoTiledMapReplyFreeK::_bingNoTileImage;

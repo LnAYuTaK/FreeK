@@ -80,7 +80,6 @@ QGeoRoutingManagerEngine*
 QGeoServiceProviderFactoryFreeK::createRoutingManagerEngine(
     const QVariantMap &, QGeoServiceProvider::Error *, QString *) const
 {
-
     return nullptr;
 }
 

@@ -18,6 +18,9 @@ qtHaveModule(positioning-private){
 CONFIG += c++11
 HEADERS += \
  #$$PWD/QGeoCodingManagerEngineFreeK.h \
+    $$PWD/AmapProvider.h \
+    $$PWD/FreeKUrlFactory.h \
+    $$PWD/MapProvider.h \
  $$PWD/QGeoMapReplyFreeK.h \
  $$PWD/QGeoServiceProviderPluginFreeK.h \
  $$PWD/QGeoTileFetcherFreeK.h \
@@ -28,6 +31,9 @@ HEADERS += \
 SOURCES += \
     #$$PWD/QGeoCodeReplyFreeK.cpp \
     #$$PWD/QGeoCodingManagerEngineFreeK.cpp \
+    $$PWD/AmapProvider.cpp \
+    $$PWD/FreeKurlFactory.cpp \
+    $$PWD/MapProvider.cpp \
     $$PWD/QGeoMapReplyFreeK.cpp \
     $$PWD/QGeoServiceProviderPluginFreeK.cpp \
     $$PWD/QGeoTileFetcherFreeK.cpp \

@@ -3,7 +3,7 @@
         <file>MainRootWindow.qml</file>
         <file>ScreenSetting.qml</file>
         <file>HeaderBar.qml</file>
-        <file>FreeMap.qml</file>
+        <file>FreeKMap.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="chuangjianrenwu.svg">../../resources/images/chuangjianrenwu.svg</file>

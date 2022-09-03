@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QDir>
 class FreeKApplication;
+/// \brief The AppSetting class
+///APP设置
+///
 class AppSetting : public QObject
 {
     Q_OBJECT

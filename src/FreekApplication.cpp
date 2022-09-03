@@ -2,7 +2,7 @@
 #include "ModuleBox.h"
 #include "ViewPluginManager.h"
 #include "ViewSetup.h"
-#include  "MapManager.h"
+#include  "MapEngineManager.h"
 #include <QtQml>
 #include "ScreenTool.h"
 FreeKApplication* FreeKApplication::_app = nullptr;
@@ -46,15 +46,13 @@ bool FreeKApplication::event(QEvent *e) {
 
 
 void FreeKApplication::initAppCommon() {
-
     //全局单例注册
-    //qmlRegisterSingletonType<ScreenTool>     ("FreeK.ScreenTool",    1, 0, "ScreenTool",_creatScreen);
+
 
     //统一注册到qml
     //
     //qmlRegisterUncreatableType  <MapManager> ("FreeK.MapManager",   1, 0, "MapManager", "Reference only");
     //qmlRegisterType<MapManager>      ("FreeK.MapManager",1, 0, "MapManager");
-
 }
 
 void FreeKApplication::initAppView() {

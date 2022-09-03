@@ -5,7 +5,10 @@
 #include "ModuleBox.h"
 class FreeKApplication;
 class AppSetting;
-/// 用于系统设置文件夹路径配置各个模块的参数
+///
+/// \brief The AppSetting class
+///配置管理器
+///
 class SettingsManager : public Module
 {
     Q_OBJECT

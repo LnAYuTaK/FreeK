@@ -73,6 +73,7 @@ public:
     QGeoTiledMappingManagerEngineFreeK(const QVariantMap &parameters, QGeoServiceProvider::Error *error, QString *errorString);
     ~QGeoTiledMappingManagerEngineFreeK();
     QGeoMap *createMap();
+    QAbstractGeoTileCache *tileCache;
 
 private:
 

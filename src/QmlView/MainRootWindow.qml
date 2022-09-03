@@ -6,7 +6,7 @@ import QtQuick.Window   2.11
 import FreeK.ViewSetup.ScreenTool 1.0
 import QtPositioning 5.4
 import QtLocation 5.4
-//import FreeK.MapManager 1.0
+
 ApplicationWindow {
     id:mainWindow
 
@@ -42,18 +42,35 @@ ApplicationWindow {
          anchors.fill: parent
      }
 
+//     ComboBox {
+//         id:             mapTypeCombo
+//         model:          QGroundControl.mapEngineManager.mapTypeList(_mapProvider)
+//         Layout.preferredWidth:  _comboFieldWidth
+//         onActivated: {
+//             _mapType = textAt(index)
+//             QGroundControl.settingsManager.flightMapSettings.mapType.value=textAt(index)
+//         }
+//         Component.onCompleted: {
+//             var index = mapTypeCombo.find(_mapType)
+//             if(index < 0) index = 0
+//             mapTypeCombo.currentIndex = index
+//         }
+//     }
+
+
      Map {
-         id: maps
+         id: testMap
          anchors.fill: parent
-         minimumZoomLevel: 3
-         maximumZoomLevel: 16
-         zoomLevel: 10
          center: QtPositioning.coordinate(37.52, 121.39)
          plugin: Plugin {
              name: "freekmap"
          }
+     }
+     Button{
+
+         onClicked: console.log(MapEngineManager.mapProviderList)
+
 
      }
-
 
 }

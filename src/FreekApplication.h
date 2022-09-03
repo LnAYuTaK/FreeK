@@ -7,7 +7,10 @@
 class QQmlApplicationEngine;
 class ModuleBox;
 class ScreenTool;
-
+///
+/// \brief The FreeKApplication class
+/// APP应用程序
+///
 class FreeKApplication : public QApplication
 {
     Q_OBJECT

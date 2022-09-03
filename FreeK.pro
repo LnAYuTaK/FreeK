@@ -21,8 +21,6 @@ QT += \
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-FreeKName = "FreeKAPP"
-
 #===============================
 # C++ src
 INCLUDEPATH += \
@@ -39,8 +37,9 @@ INCLUDEPATH += \
 
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
+    src/FreeKQmlGlobal.cpp \
     src/Map/MapEngine.cpp \
-    src/Map/MapManager.cpp \
+    src/Map/MapEngineManager.cpp \
     src/Map/MapTask.cpp \
     src/Map/MapTaskWorker.cpp \
     src/Position/PositionManager.cpp \
@@ -56,9 +55,10 @@ SOURCES += \
 
 HEADERS += \
     src/AppMsg/AppMsgManager.h \
+    src/FreeKQmlGlobal.h \
     src/FreekApplication.h \
     src/Map/MapEngine.h \
-    src/Map/MapManager.h \
+    src/Map/MapEngineManager.h \
     src/Map/MapTask.h \
     src/Map/MapTaskWorker.h \
     src/Module/ModuleBox.h \
@@ -75,15 +75,12 @@ HEADERS += \
 include($$PWD/src/FreeKMapPlugin/FreeKMapPlugin.pri)
 LOCATION_PLUGIN_DESTDIR = $${OUT_PWD}/src/FreeMapPlugin
 LOCATION_PLUGIN_NAME    = GeoServiceProviderFactoryFreeK
+
+
+
 #===================================
 #QML
 QML_IMPORT_PATH += $$PWD/src/QmlView
-
-
-# Workaround for QTBUG-38735
-#QT_FOR_CONFIG += location-private
-#qtConfig(geoservices_mapboxgl): QT += sql opengl
-#qtConfig(geoservices_osm): QT += concurrent
 
 #===================================
 #Resources
@@ -95,7 +92,6 @@ RESOURCES += \
 #TEMPLATE = app
 #C11
 CONFIG += c++11
-
  #程序执行使用使用UTF-8
 #QMAKE_CXXFLAGS += -execution-charset:utf-8
  #编译器使用UTF-8
@@ -105,16 +101,17 @@ VERSION  = 1.0
 #===============================
 #编译选项
 #DEFINES += NOTUSEDMAP
-#DISTFILES += \
-#    src/FreeKMapPlugin/FreeKMapPlugin.pri \
-#    src/FreeKMapPlugin/freek_maps_plugin.json \
-#    src/Map/FreeKMapPlugin/FreeKMapPlugin.pri
+
+
+
+
+
 #===============================
 #指定编译生成的文件到temp目录 分门别类存储
-MOC_DIR     = temp/moc
-RCC_DIR     = temp/rcc
-UI_DIR      = temp/ui
-OBJECTS_DIR = temp/obj
+MOC_DIR     = build/moc
+RCC_DIR     = build/rcc
+UI_DIR      = build/ui
+OBJECTS_DIR = build/obj
 DESTDIR     = bin
 #指定编译生成的可执行文件到bin目录
 #===============================
@@ -136,6 +133,7 @@ DISTFILES += \
     android/res/values/libs.xml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+#===============================
 
 
 

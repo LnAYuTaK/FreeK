@@ -6,7 +6,9 @@
 #include "qqmlapplicationengine.h"
 #include <QQuickWindow>
 class  FreeKApplication;
+/// \brief The ViewPluginManager class
 ///QML主界面和 QML引擎的初始化
+///
 class ViewPluginManager :public Module
 {
     Q_OBJECT

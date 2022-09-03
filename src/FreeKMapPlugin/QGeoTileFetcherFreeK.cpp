@@ -46,11 +46,11 @@
 
 //#include "MapEngine.h"
 #include "QGeoTileFetcherFreeK.h"
-#include "QGeoMapReplyFreeK.h"
 
 #include <QtCore/QLocale>
 #include <QtNetwork/QNetworkRequest>
 #include <QtLocation/private/qgeotilespec_p.h>
+#include "QGeoMapReplyFreeK.h"
 
 #include <QDebug>
 #include <QSize>
@@ -63,6 +63,10 @@
 #include <math.h>
 #include <QtCore/QJsonObject>
 #include <map>
+#include "FreekApplication.h"
+#include "ModuleBox.h"
+#include "MapEngine.h"
+#include "FreeKUrlFactory.h"
 //-----------------------------------------------------------------------------
 QGeoTileFetcherFreeK::QGeoTileFetcherFreeK(QGeoTiledMappingManagerEngine *parent)
     : QGeoTileFetcher(parent)
@@ -142,12 +146,13 @@ QGeoTileFetcherFreeK::_getURl(int type, int x, int y, int zoom)
 QGeoTiledMapReply*
 QGeoTileFetcherFreeK::getTileImage(const QGeoTileSpec &spec)
 {
-
-    QString surl = _getURl(spec.mapId(), spec.x(), spec.y(), spec.zoom());
-    QUrl url(surl);
-    netRequest.setRawHeader("Accept", "*/*");//设置网络请求头
-    netRequest.setUrl(url);
-    return new QGeoTiledMapReplyFreeK(_networkManager,netRequest, spec);
+    QNetworkRequest request =  getMapEngine()->freeKUrlFactory()->getTileURL(spec.mapId(), spec.x(), spec.y(), spec.zoom(), _networkManager);
+    if ( ! request.url().isEmpty() ) {
+        return new QGeoTiledMapReplyFreeK(_networkManager, request, spec);
+    }
+    else {
+        return nullptr;
+    }
 }
 //-----------------------------------------------------------------------------
 void

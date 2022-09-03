@@ -4,6 +4,7 @@
 #include <QObject>
 /// \brief The MapTask class
 ///MapTask基类 处理各种任务
+///
 class MapTask : public QObject
 {
     Q_OBJECT

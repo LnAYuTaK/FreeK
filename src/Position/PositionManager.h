@@ -10,6 +10,7 @@ class FreeKApplication;
 ///
 /// \brief The PositonManager class
 ///位置管理器  //可以获取地面站位置
+///
 class PositionManager : public Module
 {
      Q_OBJECT
