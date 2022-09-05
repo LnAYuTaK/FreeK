@@ -19,9 +19,10 @@ public:
    Q_PROPERTY(QStringList          mapList         READ    mapList         CONSTANT)
    Q_PROPERTY(QStringList          mapProviderList READ    mapProviderList CONSTANT)
 
+   Q_INVOKABLE QStringList mapTypeList(QString provider);
+
    QStringList mapList();
    QStringList mapProviderList();
-   QStringList mapTypeList(QString provider);
 
 private:
     ModuleBox *          _moduleBox;

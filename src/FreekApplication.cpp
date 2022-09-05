@@ -1,10 +1,12 @@
+#include <QtQml>
+
 #include "FreekApplication.h"
 #include "ModuleBox.h"
 #include "ViewPluginManager.h"
 #include "ViewSetup.h"
-#include  "MapEngineManager.h"
-#include <QtQml>
-#include "ScreenTool.h"
+#include "FreeKQmlGlobal.h"
+#include "MapEngineManager.h"
+#include "PositionManager.h"
 FreeKApplication* FreeKApplication::_app = nullptr;
 FreeKApplication::FreeKApplication(int &argc, char* argv[])
    :QApplication(argc, argv)
@@ -17,48 +19,70 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
      _moduleBox = new ModuleBox(this);
      _moduleBox->setChildBoxes();
 }
+//-----------------------------------------------------------------------------
 
-FreeKApplication::~FreeKApplication() {
+FreeKApplication::~FreeKApplication()
+{
     _moduleBox->deleteLater();
 }
 
+//-----------------------------------------------------------------------------
+
 //全局单例接口
-FreeKApplication* FreeKApp(void) {
+FreeKApplication* FreeKApp(void)
+{
     return FreeKApplication::_app;
 }
 
-bool FreeKApplication::checkErrorState() {
+//-----------------------------------------------------------------------------
 
+
+bool FreeKApplication::checkErrorState()
+{
      return false;
 }
 
-
-
+//-----------------------------------------------------------------------------
 //close Windows
-bool FreeKApplication::event(QEvent *e) {
+bool FreeKApplication::event(QEvent *e)
+{
      Q_UNUSED(e)
      if (e->type() == QEvent::Quit){
-       FreeKApp()->moduleBox()->viewPiuginManager()->mainRootWindow()->close();
+       FreeKApp()->moduleBox()->viewPluginManager()->mainRootWindow()->close();
        this->exit();
      }
      return QApplication::event(e);
 }
 
-
-void FreeKApplication::initAppCommon() {
-    //全局单例注册
-
-
-    //统一注册到qml
-    //
-    //qmlRegisterUncreatableType  <MapManager> ("FreeK.MapManager",   1, 0, "MapManager", "Reference only");
-    //qmlRegisterType<MapManager>      ("FreeK.MapManager",1, 0, "MapManager");
+//-----------------------------------------------------------------------------
+//QObject *(*callbackRest)(QQmlEngine *, QJSEngine *) =  freeKQmlGlobalRegist(nullptr,nullptr);
+static QObject *freeKQmlGlobalRegist(QQmlEngine*, QJSEngine*)
+{
+     FreeKQmlGlobal   *freeKQmlGlobal  =  new FreeKQmlGlobal(FreeKApp(),FreeKApp()->moduleBox());
+     freeKQmlGlobal->setModuleBox(FreeKApp()->moduleBox());
+     return  qobject_cast<QObject *>(freeKQmlGlobal);
 }
 
-void FreeKApplication::initAppView() {
-    //_qmlAppEngine = FreeKApp()->moduleBox()->viewPiuginManager()->createdQmlEngine();
-    FreeKApp()->moduleBox()->viewPiuginManager()->initViewPlugin();
+void FreeKApplication::initAppCommon()
+{
+   // freeKQmlGlobalRegist(nullptr,nullptr);
+
+    qmlRegisterUncreatableType<PositionManager>  ("FreeK.PositionManager",   1, 0, "PositionManager",  "Reference only");
+
+    qmlRegisterUncreatableType<MapEngineManager>  ("FreeK.MapEngineManager",  1, 0, "MapEngineManager",  "Reference only");
+
+    qmlRegisterSingletonType<FreeKQmlGlobal>("FreeK",1,0,"FreeK",freeKQmlGlobalRegist);
+    //注册单例//
 }
+//-----------------------------------------------------------------------------
+
+void FreeKApplication::initAppView()
+{
+    FreeKApp()->moduleBox()->viewPluginManager()->initViewPlugin();
+}
+
+//-----------------------------------------------------------------------------
+
 
 
 

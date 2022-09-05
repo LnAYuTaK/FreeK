@@ -6,16 +6,19 @@ import QtQuick.Window   2.11
 import FreeK.ViewSetup.ScreenTool 1.0
 import QtPositioning 5.4
 import QtLocation 5.4
+import FreeK 1.0
 
 ApplicationWindow {
     id:mainWindow
 
+    property var _providerList  :FreeK.mapEngineManager.mapProviderList
+    property var _mapList  : FreeK.mapEngineManager.mapList
     minimumWidth:   ScreenTool.isAndroid? Screen.width  : Math.min(ScreenTool.defaultFontPixelWidth * 100, Screen.width)
     minimumHeight:  ScreenTool.isAndroid? Screen.height : Math.min(ScreenTool.defaultFontPixelWidth * 50, Screen.height)
     visible: true
-    background: Rectangle {
-        color: "#F7F7F7"
-    }
+//    background: Rectangle {
+//        color: "#F7F7F7"
+//    }
     //安卓全屏//
      Component.onCompleted: {
          if(ScreenTool.isAndroid){
@@ -27,12 +30,44 @@ ApplicationWindow {
          }
      }
 
-    menuBar: HeaderBar{
-        id:         headerBar
-        height:     ScreenTool.defaultToolBarHeight*3
-        visible:    true
+     background: Item {
+         id:             rootBackground
+         anchors.fill:   parent
      }
 
+    menuBar: HeaderBar{
+        id:         headerBar
+        height:     ScreenTool.defaultToolBarHeight*2
+        visible:    true
+//        Column{
+//        spacing: 10
+//        Label{
+//             text: "地图提供商"
+//        }
+//        ComboBox {
+//            id:             mapProviderCombox
+//            visible: true
+
+//            model:          FreeK.mapEngineManager.mapProviderList
+//            onActivated: {
+//                 flyView.map.updateMapType(displayText,mapTypeCombox.displayText)
+//            }
+//         }
+//        Label{
+//             text: "地图类型"
+//        }
+//        ComboBox {
+//            id:             mapTypeCombox
+//            visible: true
+
+//            model:     FreeK.mapEngineManager.mapTypeList(mapProviderCombox.displayText)
+//            onActivated: {
+//                // var maps   = flyView.getMap()
+//                 flyView.map.updateMapType(mapProviderCombox.displayText,displayText)
+//            }
+//         }
+//        }
+     }
 
      footer: TabBar {
          // ...
@@ -42,35 +77,12 @@ ApplicationWindow {
          anchors.fill: parent
      }
 
-//     ComboBox {
-//         id:             mapTypeCombo
-//         model:          QGroundControl.mapEngineManager.mapTypeList(_mapProvider)
-//         Layout.preferredWidth:  _comboFieldWidth
-//         onActivated: {
-//             _mapType = textAt(index)
-//             QGroundControl.settingsManager.flightMapSettings.mapType.value=textAt(index)
-//         }
-//         Component.onCompleted: {
-//             var index = mapTypeCombo.find(_mapType)
-//             if(index < 0) index = 0
-//             mapTypeCombo.currentIndex = index
-//         }
-//     }
-
-
-     Map {
-         id: testMap
-         anchors.fill: parent
-         center: QtPositioning.coordinate(37.52, 121.39)
-         plugin: Plugin {
-             name: "freekmap"
-         }
-     }
-     Button{
-
-         onClicked: console.log(MapEngineManager.mapProviderList)
-
-
+     FlyView{
+             id:             flyView
+             anchors.fill:   parent
      }
 
-}
+
+
+  }
+

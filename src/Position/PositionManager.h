@@ -28,7 +28,11 @@ public:
     Q_PROPERTY(QGeoCoordinate gcsPosition  READ gcsPosition  NOTIFY gcsPositionChanged)
     Q_PROPERTY(double         gcsHeading   READ gcsHeading   NOTIFY gcsHeadingChanged)
 
-    Q_INVOKABLE QGeoCoordinate      gcsPosition         (void) { return _gcsPosition;}
+    Q_INVOKABLE QGeoCoordinate      gcsPosition         (void)
+    {
+        qDebug() << "hello";
+        return _gcsPosition;
+    }
     Q_INVOKABLE int                 gcsHeading          (void) { return _gcsHeading;}
 
 signals:

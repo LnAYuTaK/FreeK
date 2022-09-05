@@ -6,6 +6,7 @@ int ScreenTool::_defaultHeight =20;
 QString ScreenTool::_defalutFrontFamily ="Times";
 int ScreenTool::_defaultFontPixelWidth =10;
 int ScreenTool::_defaultToolBarHeight = 20;
+int ScreenTool::_defaultFontPointSize =10;
 ScreenTool::ScreenTool()
 {
 

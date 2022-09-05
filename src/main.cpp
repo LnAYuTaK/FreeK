@@ -18,14 +18,10 @@ int main(int argc, char *argv[])
         app->exec();
         return -1;
     }
-
-    {
     //插件初始化
     app->initAppCommon();
     //视图初始化
     app->initAppView();
     app->exec();
-    }
-
     qDebug() <<"Program exit";
 }

@@ -31,11 +31,9 @@ private:
     ModuleBox *              _moduleBox;
     QQmlApplicationEngine*   _qmlAppEngine;
     void                     _exitWithError    (QString errorMessage);
-//
     QObject *                _creatRootObject();
-
+    // QObject *                freeKQmlGlobalRegist(QQmlEngine*, QJSEngine*);
     //static ScreenTool *      _creatScreen(QQmlEngine *engine, QJSEngine *scriptEngine);
-
     static QString _name;
 
 };

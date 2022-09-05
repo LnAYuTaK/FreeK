@@ -9,7 +9,7 @@ ModuleBox::ModuleBox(FreeKApplication * app)
 {
     _settingsManager   = new   SettingsManager   (app,this);
     _mapEngineManager  = new   MapEngineManager  (app,this);
-    _viewPiuginManager = new   ViewPluginManager (app,this);
+    _viewPluginManager = new   ViewPluginManager (app,this);
     _viewSetup         = new   ViewSetup         (app,this);
     _positionManager   = new   PositionManager   (app,this);
 }
@@ -20,7 +20,7 @@ ModuleBox::setChildBoxes(void)
 {
     _settingsManager->setModuleBox(this);
     _mapEngineManager->setModuleBox(this);
-    _viewPiuginManager->setModuleBox(this);
+    _viewPluginManager->setModuleBox(this);
     _viewSetup->setModuleBox(this);
     _positionManager->setModuleBox(this);
 }

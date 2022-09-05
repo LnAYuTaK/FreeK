@@ -1,5 +1,4 @@
 #include "MapEngineManager.h"
-#include "FreeKMapPlugin/FreeKUrlFactory.h"
 #include "MapEngine.h"
 #include "FreekApplication.h"
 #include <QRegularExpression>
@@ -13,7 +12,8 @@ void
 MapEngineManager::setModuleBox(ModuleBox  *moduleBox)
 {
     _moduleBox = moduleBox;
-//    QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
+  // QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
+
 }
 //-----------------------------------------------------------------------------
 QStringList

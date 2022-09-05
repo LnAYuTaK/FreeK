@@ -21,15 +21,15 @@ public:
     ModuleBox(FreeKApplication * app);
     void setChildBoxes(void);
 
-    SettingsManager *     settingsManager()   {return this->_settingsManager;}
-    MapEngineManager *    mapEngineManager()  {return this->_mapEngineManager;}
-    ViewPluginManager *   viewPiuginManager() {return this->_viewPiuginManager;}
-    PositionManager *     positionManager()   {return this->_positionManager;}
-
+    SettingsManager *     settingsManager()   { return this->_settingsManager; }
+    MapEngineManager *    mapEngineManager()  { return this->_mapEngineManager; }
+    ViewPluginManager *   viewPluginManager() { return this->_viewPluginManager; }
+    PositionManager *     positionManager()   { return this->_positionManager; }
+    ViewSetup *           viewSetup()         { return this->_viewSetup; }
 private:
     SettingsManager*      _settingsManager    = nullptr;
     MapEngineManager *    _mapEngineManager   = nullptr;
-    ViewPluginManager *   _viewPiuginManager  = nullptr;
+    ViewPluginManager *   _viewPluginManager  = nullptr;
     ViewSetup *           _viewSetup          = nullptr;
     PositionManager *     _positionManager    = nullptr;
     //TUDO

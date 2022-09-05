@@ -4,6 +4,8 @@
         <file>ScreenSetting.qml</file>
         <file>HeaderBar.qml</file>
         <file>FreeKMap.qml</file>
+        <file>FlyView.qml</file>
+        <file>MainStatusIndicator.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="chuangjianrenwu.svg">../../resources/images/chuangjianrenwu.svg</file>
@@ -25,5 +27,33 @@
         <file alias="wenjianshanchu.svg">../../resources/images/wenjianshanchu.svg</file>
         <file alias="wenjianzengjia3.svg">../../resources/images/wenjianzengjia3.svg</file>
         <file alias="notile.png">../../resources/images/notile.png</file>
+        <file alias="ToolBarImage/a-fabufeihangzhifeiji.svg">../../resources/images/ToolBarImage/a-fabufeihangzhifeiji.svg</file>
+        <file alias="ToolBarImage/feiji.svg">../../resources/images/ToolBarImage/feiji.svg</file>
+        <file alias="ToolBarImage/feijichang.svg">../../resources/images/ToolBarImage/feijichang.svg</file>
+        <file alias="ToolBarImage/hd-line.svg">../../resources/images/ToolBarImage/hd-line.svg</file>
+        <file alias="ToolBarImage/hd-line_1.svg">../../resources/images/ToolBarImage/hd-line_1.svg</file>
+        <file alias="ToolBarImage/hd-line_2.svg">../../resources/images/ToolBarImage/hd-line_2.svg</file>
+        <file alias="ToolBarImage/home.svg">../../resources/images/ToolBarImage/home.svg</file>
+        <file alias="ToolBarImage/home_1.svg">../../resources/images/ToolBarImage/home_1.svg</file>
+        <file alias="ToolBarImage/home_2.svg">../../resources/images/ToolBarImage/home_2.svg</file>
+        <file alias="ToolBarImage/kongjianGPS.svg">../../resources/images/ToolBarImage/kongjianGPS.svg</file>
+        <file alias="ToolBarImage/paodao.svg">../../resources/images/ToolBarImage/paodao.svg</file>
+        <file alias="ToolBarImage/shezhi.svg">../../resources/images/ToolBarImage/shezhi.svg</file>
+        <file alias="ToolBarImage/xinhao.svg">../../resources/images/ToolBarImage/xinhao.svg</file>
+        <file alias="ToolBarImage/xinhao_1.svg">../../resources/images/ToolBarImage/xinhao_1.svg</file>
+        <file alias="ToolBarImage/xinhao01.svg">../../resources/images/ToolBarImage/xinhao01.svg</file>
+        <file alias="ToolBarImage/yaogancehui.svg">../../resources/images/ToolBarImage/yaogancehui.svg</file>
+        <file alias="ToolBarImage/yaokong.svg">../../resources/images/ToolBarImage/yaokong.svg</file>
+        <file alias="ToolBarImage/zhifeiji.svg">../../resources/images/ToolBarImage/zhifeiji.svg</file>
+        <file alias="ToolBarImage/zuoce-xinhao.svg">../../resources/images/ToolBarImage/zuoce-xinhao.svg</file>
+    </qresource>
+    <qresource prefix="/control">
+        <file>FreeKComBox.qml</file>
+    </qresource>
+    <qresource prefix="/BasicControl">
+        <file>FreeKImage.qml</file>
+        <file>FreeKButton.qml</file>
+        <file>Test.qml</file>
+        <file>FreeKLabelButton.qml</file>
     </qresource>
 </RCC>

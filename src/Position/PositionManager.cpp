@@ -9,6 +9,7 @@ PositionManager::PositionManager(FreeKApplication *app , ModuleBox  * moduleBox)
     ,_currentSource(nullptr)
     ,_defaultSource(nullptr)
 {
+
    _currentSource   = QGeoPositionInfoSource::createDefaultSource(this);
    _currentSource->setUpdateInterval(_updateInterval);
    _currentSource->setPreferredPositioningMethods(QGeoPositionInfoSource::NonSatellitePositioningMethods);

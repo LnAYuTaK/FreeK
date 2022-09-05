@@ -19,12 +19,15 @@ public:
     Q_PROPERTY(QString  defalutFrontFamily      READ defalutFrontFamily     WRITE setDefalutFrontFamily     NOTIFY defalutFrontFamilyChanged)
     Q_PROPERTY(int      defaultFontPixelWidth   READ defaultFontPixelWidth  WRITE setDefaultFontPixelWidth  NOTIFY defaultFontPixelWidthChanged)
     Q_PROPERTY(int      defaultToolBarHeight    READ defaultToolBarHeight   WRITE setDefaultToolBarHeight   NOTIFY defaultToolBarHeightChanged)
+    Q_PROPERTY(int      defaultFontPointSize    READ defaultFontPointSize   WRITE setDefaultFontPointSize   NOTIFY defaultFontPointSizeChanged)
 
     Q_INVOKABLE void    setDefalutHeight(int value)           {this->_defaultHeight=value,         emit defaultHeightChanged() ;}
     Q_INVOKABLE void    setDefaultWidth(int value)            {this->_defaultWidth=value,          emit defaultWidthChanged() ;}
     Q_INVOKABLE void    setDefalutFrontFamily(QString value)  {this->_defalutFrontFamily=value,    emit defalutFrontFamilyChanged() ;}
     Q_INVOKABLE void    setDefaultFontPixelWidth(int value)   {this->_defaultFontPixelWidth=value, emit defaultFontPixelWidthChanged() ;}
     Q_INVOKABLE void    setDefaultToolBarHeight(int value)    {this->_defaultToolBarHeight=value,  emit defaultToolBarHeightChanged() ;}
+    Q_INVOKABLE void    setDefaultFontPointSize(int value)    {this->_defaultFontPointSize=value,  emit defaultFontPointSizeChanged() ;}
+
 private:
     //字体
     enum FrontFamily{
@@ -36,6 +39,7 @@ private:
     QString  defalutFrontFamily   ()               {return _defalutFrontFamily;}
     int      defaultFontPixelWidth()               {return _defaultFontPixelWidth;}
     int      defaultToolBarHeight ()               {return _defaultToolBarHeight;}
+    int      defaultFontPointSize ()               {return _defaultFontPointSize;}
 
     //Value
     static int      _defaultHeight;
@@ -43,6 +47,7 @@ private:
     static QString  _defalutFrontFamily;
     static int      _defaultFontPixelWidth;
     static int      _defaultToolBarHeight;
+    static int      _defaultFontPointSize;     //ScreenTools.defaultFontPointSize
     bool isAndroid() {
     #ifdef Q_OS_ANDROID
           return true;
@@ -70,6 +75,7 @@ signals:
    void  defalutFrontFamilyChanged();
    void  defaultFontPixelWidthChanged();
    void  defaultToolBarHeightChanged();
+   void  defaultFontPointSizeChanged();
 
 };
 

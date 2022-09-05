@@ -1,7 +1,6 @@
 #include "MapEngine.h"
 #include "FreeKMapPlugin/FreeKUrlFactory.h"
 
-
 #include <QFile>
 #include <QTextStream>
 static MapEngine* FreeKMapEngine=nullptr;
