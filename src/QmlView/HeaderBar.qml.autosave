@@ -27,13 +27,11 @@ Rectangle {
                 //mainWindow
             }
         }
-
+        
         Rectangle
         {
              width:20
-             palette{
-                 color: "green"
-             }
+             
 
         }
         MainStatusIndicator{

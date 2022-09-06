@@ -2,7 +2,9 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.12
+//自定义图片
 Item {
+
     property color color:               "white"// Image color
     property alias asynchronous:        image.asynchronous
     property alias cache:               image.cache
@@ -27,14 +29,11 @@ Item {
         smooth:             true
         mipmap:             true
         antialiasing:       true
-        visible:            false
+        visible:            true
         fillMode:           Image.PreserveAspectFit
         anchors.fill:       parent
+        anchors.centerIn:   parent
         sourceSize.height:  height
     }
-    ColorOverlay {
-        anchors.fill:       image
-        source:             image
-        color:              parent.color
-    }
+
 }

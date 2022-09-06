@@ -3,24 +3,24 @@ import QtQuick          2.3
 import QtQuick.Controls 2.4
 import FreeK.ViewSetup.ScreenTool 1.0
 
-// Important Note: Toolbar buttons must manage their checked state manually in order to support
-// view switch prevention. This means they can't be checkable or autoExclusive.
-
+//图片按钮
 Button {
     id:                 button
-    height:             ScreenTool.defaultFontPixelHeight * 3
-    leftPadding:        _horizontalMargin
-    rightPadding:       _horizontalMargin
     checkable:          false
     property bool logo: false
-    property real _horizontalMargin: ScreenTool.defaultFontPixelWidth
-
+    property string paletteColor: "transparent"
     onCheckedChanged: checkable = false
+    property string iconsource: ""
     FreeKImage {
             id:                     _icon
-            fillMode:               Image.PreserveAspectFit
-            source:                 button.icon.source
+            anchors.fill :parent
+            source:                 button.iconsource
+            sourceSize.height:      parent.height
             anchors.verticalCenter: parent.verticalCenter
     }
+    palette {
+         button: paletteColor
+    }
+
 }
 

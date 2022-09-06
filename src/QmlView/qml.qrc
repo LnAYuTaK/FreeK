@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/qml">
         <file>MainRootWindow.qml</file>
-        <file>ScreenSetting.qml</file>
         <file>HeaderBar.qml</file>
         <file>FreeKMap.qml</file>
         <file>FlyView.qml</file>
@@ -46,6 +45,9 @@
         <file alias="ToolBarImage/yaokong.svg">../../resources/images/ToolBarImage/yaokong.svg</file>
         <file alias="ToolBarImage/zhifeiji.svg">../../resources/images/ToolBarImage/zhifeiji.svg</file>
         <file alias="ToolBarImage/zuoce-xinhao.svg">../../resources/images/ToolBarImage/zuoce-xinhao.svg</file>
+        <file alias="ToolBarImage/home_3.svg">../../resources/images/ToolBarImage/home_3.svg</file>
+        <file alias="ToolBarImage/home_fill_light.svg">../../resources/images/ToolBarImage/home_fill_light.svg</file>
+        <file alias="ToolBarImage/home-filling.svg">../../resources/images/ToolBarImage/home-filling.svg</file>
     </qresource>
     <qresource prefix="/control">
         <file>FreeKComBox.qml</file>

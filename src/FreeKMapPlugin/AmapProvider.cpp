@@ -30,6 +30,7 @@ QString AmapProviderSatalliteMapProvider::_getURL(const int x, const int y, cons
     QString sec1    = ""; // after &x=...
     QString sec2    = ""; // after &zoom=...
     AmapProvider::_getSecAmapWords(x, y, sec1, sec2);
+
     return QString("http://wprd03.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x=%1&y=%2&z=%3").arg(x).arg(y).arg(zoom);
 }
 //地形图

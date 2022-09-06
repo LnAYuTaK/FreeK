@@ -31,7 +31,6 @@ Button {
     background: Rectangle {
         id:             backRect
         radius:         backRadius
-        color:"white"
         implicitWidth:   Math.round(ScreenTool.defaultFontPixelWidth *  (ScreenTool.isAndroid ? 7.0 : 5.0))
         implicitHeight:  Math.round(ScreenTool.defaultFontPixelWidth * (ScreenTool.isAndroid ? 2.0 : 1.6))
     }
