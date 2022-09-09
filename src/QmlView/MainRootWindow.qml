@@ -53,6 +53,18 @@ ApplicationWindow {
              id:             flyView
              anchors.fill:   parent
      }
+     HomeView{
+         id:homeView
+         height:parent.height
+         width: parent.height
+     }
+     function showHomeView(){
+      if(!homeView.visible){
+        homeView.visible = true
+      }
+    }
+
+
 
 
 

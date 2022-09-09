@@ -7,49 +7,41 @@ import FreeK.ViewSetup.ScreenTool 1.0
 import FreeK 1.0
 import "../BasicControl"
 Rectangle {
-    color:"#000000"
-    Rectangle//底边框
-    {
-            anchors.left:   parent.left
-            anchors.right:  parent.right
-            anchors.bottom: parent.bottom
-            height:         1
-            color:          "#2f271d"
-    }
-    RowLayout{
-        anchors.fill :parent
+   property int _defaultSize  :ScreenTool.defaultFontPointSize
+
+   RowLayout{
+       anchors.fill:parent
+        spacing: 0
         FreeKLabelButton{
-            id:homeButton
+            id:homeBut
             Layout.alignment: Qt.AlignLeft
-            iconsource: "qrc:/images/ToolBarImage/home_fill_light.svg"
+            iconsource:"qrc:/images/ToolBarImage/home_fill_light.svg"
             paletteColor:"black"
             onClicked: {
-                //mainWindow
+
+                    mainWindow.showHomeView()
             }
         }
+       Rectangle{
+           Layout.preferredWidth: _defaultSize*20
+           id:toolBargroup
+       }
+       FreeKLabelButton{
+           Layout.fillWidth:true
+           id:staeBar
+           paletteColor:"#16c09c"
+       }
+       FreeKLabelButton{
+           id:settingsBut
+           Layout.alignment: Qt.AlignRight
+           iconsource:"qrc:/images/ToolBarImage/shezhi.svg"
+           paletteColor:"black"
+           onClicked: {
 
-        Rectangle
-        {
-             width:20
-             palette{
-                 color: "green"
-             }
+           }
+       }
 
-        }
-        MainStatusIndicator{
-
-
-        }
-        FreeKLabelButton{
-            id:settingsButton
-            Layout.alignment: Qt.AlignRight
-            iconsource:"qrc:/images/ToolBarImage/shezhi.svg"
-            paletteColor:"black"
-            onClicked: {
-                //mainWindow
-            }
-        }
- }
+   }
 
 }
 

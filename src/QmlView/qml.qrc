@@ -5,6 +5,7 @@
         <file>FreeKMap.qml</file>
         <file>FlyView.qml</file>
         <file>MainStatusIndicator.qml</file>
+        <file>HomeView.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="chuangjianrenwu.svg">../../resources/images/chuangjianrenwu.svg</file>
