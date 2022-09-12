@@ -26,7 +26,6 @@ ModuleBox::setChildBoxes(void)
 }
 
 //-----------------------------------------------------------------------------
-
 Module::
 Module(FreeKApplication * app,ModuleBox *moduleBox)
     :QObject(moduleBox),

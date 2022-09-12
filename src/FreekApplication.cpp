@@ -20,28 +20,21 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
      _moduleBox->setChildBoxes();
 }
 //-----------------------------------------------------------------------------
-
 FreeKApplication::~FreeKApplication()
 {
     _moduleBox->deleteLater();
 }
-
 //-----------------------------------------------------------------------------
-
 //全局单例接口
 FreeKApplication* FreeKApp(void)
 {
     return FreeKApplication::_app;
 }
-
 //-----------------------------------------------------------------------------
-
-
 bool FreeKApplication::checkErrorState()
 {
      return false;
 }
-
 //-----------------------------------------------------------------------------
 //close Windows
 bool FreeKApplication::event(QEvent *e)
@@ -53,30 +46,30 @@ bool FreeKApplication::event(QEvent *e)
      }
      return QApplication::event(e);
 }
-
 //-----------------------------------------------------------------------------
 //QObject *(*callbackRest)(QQmlEngine *, QJSEngine *) =  freeKQmlGlobalRegist(nullptr,nullptr);
-static QObject *freeKQmlGlobalRegist(QQmlEngine*, QJSEngine*)
+static
+QObject *freeKQmlGlobalRegist(QQmlEngine*, QJSEngine*)
 {
      FreeKQmlGlobal   *freeKQmlGlobal  =  new FreeKQmlGlobal(FreeKApp(),FreeKApp()->moduleBox());
      freeKQmlGlobal->setModuleBox(FreeKApp()->moduleBox());
      return  qobject_cast<QObject *>(freeKQmlGlobal);
 }
-
-void FreeKApplication::initAppCommon()
+//-----------------------------------------------------------------------------
+void
+FreeKApplication::initAppCommon()
 {
    // freeKQmlGlobalRegist(nullptr,nullptr);
 
     qmlRegisterUncreatableType<PositionManager>  ("FreeK.PositionManager",   1, 0, "PositionManager",  "Reference only");
 
     qmlRegisterUncreatableType<MapEngineManager>  ("FreeK.MapEngineManager",  1, 0, "MapEngineManager",  "Reference only");
-
-    qmlRegisterSingletonType<FreeKQmlGlobal>("FreeK",1,0,"FreeK",freeKQmlGlobalRegist);
     //注册单例//
+    qmlRegisterSingletonType<FreeKQmlGlobal>("FreeK",1,0,"FreeK",freeKQmlGlobalRegist);
 }
 //-----------------------------------------------------------------------------
-
-void FreeKApplication::initAppView()
+void
+FreeKApplication::initAppView()
 {
     FreeKApp()->moduleBox()->viewPluginManager()->initViewPlugin();
 }

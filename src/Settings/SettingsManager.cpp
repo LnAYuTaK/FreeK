@@ -7,8 +7,9 @@ SettingsManager::SettingsManager(FreeKApplication *app , ModuleBox  * moduleBox)
 {
 
 }
-
-void SettingsManager::setModuleBox(ModuleBox  *moduleBox) {
+//-----------------------------------------------------------------------------
+void
+SettingsManager::setModuleBox(ModuleBox  *moduleBox) {
    _moduleBox = moduleBox;
    QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
     qmlRegisterUncreatableType<SettingsManager>("FreeK.SettingsManager", 1, 0, "SettingsManager", "Reference only");

@@ -5,7 +5,7 @@ AppMsgManager::AppMsgManager(FreeKApplication *app , ModuleBox  * moduleBox)
 {
 
 }
-
+//-----------------------------------------------------------------------------
 void AppMsgManager::setModuleBox(ModuleBox  *moduleBox)
 {
    _moduleBox = moduleBox;

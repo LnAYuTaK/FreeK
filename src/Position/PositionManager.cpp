@@ -15,13 +15,15 @@ PositionManager::PositionManager(FreeKApplication *app , ModuleBox  * moduleBox)
    _currentSource->setPreferredPositioningMethods(QGeoPositionInfoSource::NonSatellitePositioningMethods);
    connect (_currentSource,&QGeoPositionInfoSource::positionUpdated,this,&PositionManager::_positionUpdated);
 }
-
-void PositionManager::setModuleBox (ModuleBox  * moduleBox)
+//-----------------------------------------------------------------------------
+void
+PositionManager::setModuleBox (ModuleBox  * moduleBox)
 {
      _moduleBox = moduleBox;
 }
-//更新当前坐标
-void PositionManager::_positionUpdated(const QGeoPositionInfo &update)
+//-----------------------------------------------------------------------------
+void
+PositionManager::_positionUpdated(const QGeoPositionInfo &update)
 {
     _geoPositionInfo = update;
     QGeoCoordinate newGCSPosition = QGeoCoordinate();

@@ -17,18 +17,20 @@ AppSetting::AppSetting(QObject *parent)
     saveDirectoryPath =  rootDir.absolutePath()+"/"+FreeKApp()->applicationName();
     _checkSavePathDirectories();
 }
-
-
-//Root Path
-QString AppSetting::savePath() {
+//-----------------------------------------------------------------------------
+QString
+AppSetting::savePath()
+{
    QDir savePath = QDir(saveDirectoryPath);
    if(!savePath.exists()) {
       rootDir.mkpath(saveDirectoryPath);
    }
    return saveDirectoryPath;
 }
-
-QString AppSetting::logSavePath(){
+//-----------------------------------------------------------------------------
+QString
+AppSetting::logSavePath()
+{
 
     QString path = saveDirectoryPath;
     if(!path.isEmpty() && QDir(path).exists()) {
@@ -37,8 +39,9 @@ QString AppSetting::logSavePath(){
     }
     return QString();
 }
-
-QString AppSetting::cacheSavePath(){
+//-----------------------------------------------------------------------------
+QString
+AppSetting::cacheSavePath(){
     QString path = saveDirectoryPath;
     if(!path.isEmpty() && QDir(path).exists()) {
         QDir dir(path);
@@ -46,8 +49,9 @@ QString AppSetting::cacheSavePath(){
     }
     return QString();
 }
-
-QString AppSetting::photoSavePath(){
+//-----------------------------------------------------------------------------
+QString
+AppSetting::photoSavePath(){
     QString path = saveDirectoryPath;
     if(!path.isEmpty() && QDir(path).exists()) {
         QDir dir(path);
@@ -55,8 +59,9 @@ QString AppSetting::photoSavePath(){
     }
     return QString();
 }
-
-void AppSetting::_checkSavePathDirectories(void) {
+//-----------------------------------------------------------------------------
+void
+AppSetting::_checkSavePathDirectories(void) {
 
     QDir savePathDir(savePath());
     if (!savePathDir.exists()) {

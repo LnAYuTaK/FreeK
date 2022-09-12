@@ -8,7 +8,7 @@ import FreeK 1.0
 import "../BasicControl"
 Rectangle {
    property int _defaultSize  :ScreenTool.defaultFontPointSize
-   color:"#000000"
+   color:"tran"
    opacity : 0.8
    RowLayout{
        anchors.fill:parent

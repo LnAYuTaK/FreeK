@@ -16,9 +16,7 @@ FreeKQmlGlobal::FreeKQmlGlobal(FreeKApplication *app , ModuleBox  * moduleBox)
 {
 
 }
-
 //-----------------------------------------------------------------------------
-
 void
 FreeKQmlGlobal::setModuleBox(ModuleBox  *moduleBox)
 {
@@ -31,4 +29,3 @@ FreeKQmlGlobal::setModuleBox(ModuleBox  *moduleBox)
    _positionManager   = FreeKApp()->moduleBox()->positionManager();
 
 }
-
