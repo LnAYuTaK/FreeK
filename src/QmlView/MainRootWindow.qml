@@ -7,7 +7,7 @@ import FreeK.ViewSetup.ScreenTool 1.0
 import QtPositioning 5.4
 import QtLocation 5.4
 import FreeK 1.0
-
+import "../control"
 ApplicationWindow {
     id:mainWindow
 
@@ -16,9 +16,7 @@ ApplicationWindow {
     minimumWidth:   ScreenTool.isAndroid? Screen.width  : Math.min(ScreenTool.defaultFontPixelWidth * 100, Screen.width)
     minimumHeight:  ScreenTool.isAndroid? Screen.height : Math.min(ScreenTool.defaultFontPixelWidth * 50, Screen.height)
     visible: true
-//    background: Rectangle {
-//        color: "#F7F7F7"
-//    }
+
     //安卓全屏//
      Component.onCompleted: {
          if(ScreenTool.isAndroid){
@@ -33,7 +31,7 @@ ApplicationWindow {
      background: Item {
          id:             rootBackground
          anchors.fill:   parent
-     }
+    }
 
     menuBar: HeaderBar{
         id:         headerBar
@@ -41,10 +39,10 @@ ApplicationWindow {
         visible:    true
      }
 
+
      footer: TabBar {
          // ...
      }
-
      StackView {
          anchors.fill: parent
      }
@@ -62,11 +60,32 @@ ApplicationWindow {
       if(!homeView.visible){
         homeView.visible = true
       }
-    }
+        //msgBoxAnyks.open(this);
+     }
 
 
 
 
+     function closeFreeKProcess(){
+        //close Video
+        //close Link
+        mainWindow.close()
+     }
+     FreeKMessageBox {
+             id:		msgBoxAnyks
+             title:	"是否退出"
+             text:	"是否要在为保存的情况下退出."
+             onButtonClick: {
+               (index == 0)? closeFreeKProcess():console.log("error")
+             }
+             Component.onCompleted:  msgBoxAnyks.addButtons([{ "text": "OK",},
+                                                    {"text":"Cancel",}])
+     }
 
-  }
+
+
+}
+
+
+
 

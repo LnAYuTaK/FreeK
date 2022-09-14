@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.0, 2022-09-12T15:37:09. -->
+<!-- Written by QtCreator 8.0.0, 2022-09-14T17:35:59. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -88,7 +88,7 @@
    <value type="QString" key="DeviceType">Android.Device.Type</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Android Qt 5.15.2 Clang Multi-Abi</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Android Qt 5.15.2 Clang Multi-Abi</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{6c853834-80fb-4714-82a1-616664b4fb9d}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{b6ba6693-84c7-4e8e-8eb4-12b38444999d}</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
@@ -477,12 +477,14 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/FreeK/FreeK.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/FreeK/FreeK.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/build-FreeK-Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/bin</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

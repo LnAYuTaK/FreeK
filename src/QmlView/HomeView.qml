@@ -4,6 +4,7 @@ import QtQuick.Controls.Styles  1.4
 import FreeK.ViewSetup.ScreenTool 1.0
 import QtQuick.Layouts 1.12
 import "../BasicControl"
+
 //Home界面
 Drawer{
      id:root

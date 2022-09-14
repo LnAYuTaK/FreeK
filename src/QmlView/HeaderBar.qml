@@ -8,34 +8,44 @@ import FreeK 1.0
 import "../BasicControl"
 Rectangle {
    property int _defaultSize  :ScreenTool.defaultFontPointSize
-   color:"#000000"
-   opacity : 0.8
+   color: Qt.rgba(0,0,0,0)
    RowLayout{
        anchors.fill:parent
         spacing: 0
         FreeKLabelButton{
             id:homeBut
+            opacity : 0.8
             Layout.alignment: Qt.AlignLeft
             iconsource:"qrc:/images/ToolBarImage/home_fill_light.svg"
-            paletteColor:"#434343"
+            paletteColor:"#0000000"
             onClicked: {
                     mainWindow.showHomeView()
             }
         }
+        Rectangle{
+             opacity : 0.8
+             Layout.fillHeight: true
+             Layout.preferredWidth: 1
+             color:"white"
+         }
        Rectangle{
-           Layout.preferredWidth: _defaultSize*20
-           id:toolBargroup
-       }
-       FreeKLabelButton{
-           Layout.fillWidth:true
-           id:staeBar
-           paletteColor:"#16c09c"
+            opacity : 0.8
+            Layout.fillHeight: true
+            Layout.preferredWidth: 260
+            color :"black"
+        }
+       Rectangle{
+           Layout.fillHeight: true
+           Layout.fillWidth: true
+           id:state
+           color:"#16c09c"
        }
        FreeKLabelButton{
            id:settingsBut
+           opacity : 0.8
            Layout.alignment: Qt.AlignRight
            iconsource:"qrc:/images/ToolBarImage/shezhi.svg"
-           paletteColor:"#434343"
+           paletteColor:"#0000000"
            onClicked: {
 
            }

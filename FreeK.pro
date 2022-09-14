@@ -33,11 +33,14 @@ INCLUDEPATH += \
             src/ViewSetup \
             src/Test  \
             src/Settings \
-            src/Position
+            src/Position \
+            src/LinkCommon
 
 SOURCES += \
     src/AppMsg/AppMsgManager.cpp \
     src/FreeKQmlGlobal.cpp \
+    src/LinkCommon/LinkConfig.cpp \
+    src/LinkCommon/LinkInterface.cpp \
     src/Map/MapEngine.cpp \
     src/Map/MapEngineManager.cpp \
     src/Map/MapTask.cpp \
@@ -57,6 +60,8 @@ HEADERS += \
     src/AppMsg/AppMsgManager.h \
     src/FreeKQmlGlobal.h \
     src/FreekApplication.h \
+    src/LinkCommon/LinkConfig.h \
+    src/LinkCommon/LinkInterface.h \
     src/Map/MapEngine.h \
     src/Map/MapEngineManager.h \
     src/Map/MapTask.h \
@@ -69,6 +74,12 @@ HEADERS += \
     src/Test/test.h \
     src/ViewPlugin/ViewPluginManager.h \
     src/ViewSetup/ViewSetup.h
+
+#===================================
+#Lib  MAVLINK
+INCLUDEPATH += \
+         libs/mavlink/include/mavlink/v2.0 \
+         libs/mavlink/include/mavlink/v2.0/common
 
 #===================================
 #地图插件

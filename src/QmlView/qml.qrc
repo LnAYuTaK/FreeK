@@ -52,6 +52,7 @@
     </qresource>
     <qresource prefix="/control">
         <file>FreeKComBox.qml</file>
+        <file>FreeKMessageBox.qml</file>
     </qresource>
     <qresource prefix="/BasicControl">
         <file>FreeKImage.qml</file>
