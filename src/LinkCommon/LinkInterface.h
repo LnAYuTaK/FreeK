@@ -11,12 +11,15 @@
 #include <QTimer>
 #include <memory>
 #include <QObject>
+#include "LinkConfig.h"
 class LinkConfig;
+///
+/// \brief The LinkInterface class
+/// 所有连接类型的基类
 class LinkInterface : public QObject
 {
     Q_OBJECT
 public:
-    LinkInterface(LinkConfig& config);
 
     virtual ~LinkInterface();
 
@@ -31,6 +34,9 @@ signals:
     void communicationError (const QString& title, const QString& error);
     void _invokeWriteBytes  (QByteArray);
 
+protected:
+    LinkInterface(LinkConfig& config);
+
 private slots:
     //Needs to be implemented
     virtual void _writeBytes(const QByteArray) = 0;
@@ -38,6 +44,11 @@ private slots:
 private:
     //Needs to be implemented
     virtual bool _connect(void) = 0;
+
+    LinkConfigPtr _conf;
+
+
+
 
 };
 

@@ -10,6 +10,7 @@ class ViewSetup;
 class SettingsManager;
 class PositionManager;
 class MapEngineManager;
+class LinkManager;
 ///
 /// \brief The ModuleBox class
 /// 统一接口管理所有插件
@@ -26,8 +27,10 @@ public:
     ViewPluginManager *   viewPluginManager() { return this->_viewPluginManager; }
     PositionManager *     positionManager()   { return this->_positionManager; }
     ViewSetup *           viewSetup()         { return this->_viewSetup; }
+    LinkManager *         linkManager()      { return this->_linkManager; }
 private:
-    SettingsManager*      _settingsManager    = nullptr;
+    SettingsManager *     _settingsManager    = nullptr;
+    LinkManager *         _linkManager        = nullptr;
     MapEngineManager *    _mapEngineManager   = nullptr;
     ViewPluginManager *   _viewPluginManager  = nullptr;
     ViewSetup *           _viewSetup          = nullptr;

@@ -41,6 +41,9 @@ SOURCES += \
     src/FreeKQmlGlobal.cpp \
     src/LinkCommon/LinkConfig.cpp \
     src/LinkCommon/LinkInterface.cpp \
+    src/LinkCommon/LinkManager.cpp \
+    src/LinkCommon/SerialLink.cpp \
+    src/LinkCommon/TCPLink.cpp \
     src/Map/MapEngine.cpp \
     src/Map/MapEngineManager.cpp \
     src/Map/MapTask.cpp \
@@ -62,6 +65,9 @@ HEADERS += \
     src/FreekApplication.h \
     src/LinkCommon/LinkConfig.h \
     src/LinkCommon/LinkInterface.h \
+    src/LinkCommon/LinkManager.h \
+    src/LinkCommon/SerialLink.h \
+    src/LinkCommon/TCPLink.h \
     src/Map/MapEngine.h \
     src/Map/MapEngineManager.h \
     src/Map/MapTask.h \
