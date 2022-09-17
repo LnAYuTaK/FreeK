@@ -7,37 +7,45 @@ LinkManager::LinkManager(FreeKApplication *app , ModuleBox  * moduleBox)
 {
 
 }
-
 //--------------------------------------------------------
 void
 LinkManager::setModuleBox (ModuleBox  * moduleBox)
 {
      _moduleBox = moduleBox;
-//     QString TcpLinkName  = "TCP";
-//     TCPLinkConfig *link =new TCPLinkConfig(TcpLinkName);
-//     QSharedPointer<TCPLinkConfig> obj =QSharedPointer<TCPLinkConfig>(link);
 }
-
 //--------------------------------------------------------
-void
-createLink(LinkConfigPtr &conf)
+LinkConfigPtr
+LinkManager::_createLinkConf(QString &linkName ,int type)
 {
-
-   LinkInterfacePtr link = nullptr;
-    switch (conf->linkType()) {
-    case LinkConfig::TCPLink:
-
-        break;
-//    case LinkConfig::SerialLink:
-//        break;
-//    case LinkConfig::UDPLink:
-//        break;
-//    case LinkConfig::BlueToothLink:
-
-//        break;
-//    default:
-//        return;
+    LinkConfig  *conf =nullptr;
+    switch(type){
+        case LinkConfig::TCPLinkType:
+            conf = new TCPLinkConfig(linkName);
+            break;
     }
+    _LinkConfigList.append(LinkConfigPtr(conf));
+    return _LinkConfigList.last();
+}
+//--------------------------------------------------------
+bool
+LinkManager::_createLink(LinkConfigPtr conf)
+{
+   LinkInterfacePtr link = nullptr;
+    switch (conf->type()) {
+    case LinkConfig::TCPLinkType:
+        link =QSharedPointer<TCPLink>(new TCPLink(conf));
+        break;
+//    case LinkConfig::SerialLinkType:
+//        break;
+//    case LinkConfig::UDPLinkType:
+//        break;
+//    case LinkConfig::BlueToothLinkType:
+//        break;
+    default:
+        return false;
+    }
+    _LinkInterfaceList.append(link);
+    return true;
 }
 //--------------------------------------------------------
 

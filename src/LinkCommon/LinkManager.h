@@ -17,16 +17,18 @@ class LinkManager : public Module
 {
     Q_OBJECT
 public:
-    LinkManager(FreeKApplication *app , ModuleBox  * moduleBox);
+    LinkManager(FreeKApplication * app , ModuleBox  * moduleBox);
 
-    void setModuleBox (ModuleBox  * moduleBox)override;
+    void setModuleBox (ModuleBox * moduleBox)override;
 
-    void createLink(LinkConfigPtr &conf);
+private: 
+    //创建Link配置统一接口
+    LinkConfigPtr _createLinkConf(QString &linkName ,int type);
+    //创建Link连接接口
+    bool _createLink(LinkConfigPtr conf);
 
-private:
     QList<LinkConfigPtr>    _LinkConfigList;
     QList<LinkInterfacePtr> _LinkInterfaceList;
-
 };
 
 

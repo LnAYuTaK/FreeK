@@ -35,7 +35,7 @@ signals:
     void _invokeWriteBytes  (QByteArray);
 
 protected:
-    LinkInterface(LinkConfig& config);
+    LinkInterface(LinkConfigPtr& config);
 
 private slots:
     //Needs to be implemented

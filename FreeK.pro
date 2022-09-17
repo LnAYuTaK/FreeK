@@ -16,6 +16,7 @@ QT += \
     texttospeech \
     core-private \
     location-private \
+    testlib \
     positioning-private
 
 # You can make your code fail to compile if it uses deprecated APIs.

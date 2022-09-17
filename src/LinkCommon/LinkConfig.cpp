@@ -1,10 +1,10 @@
 #include "LinkConfig.h"
+#include "LinkInterface.h"
+LinkConfig::LinkConfig(const QString &linkName)
+    :_linkName(linkName)
 
-LinkConfig::LinkConfig(QString &,LinkType)
-    :QObject(nullptr)
-    ,_linkName("Link")
-    ,_linkType(LinkType::DefaultLink)
 {
 
 
 }
+

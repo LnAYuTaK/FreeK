@@ -11,31 +11,29 @@ class LinkConfig : public QObject
     Q_OBJECT
 public:
     enum LinkType{
-        TCPLink,
-        UDPLink,
-        SerialLink,
-        BlueToothLink,
-        DefaultLink
+        TCPLinkType,
+        UDPLinkType,
+        SerialLinkType,
+        BlueToothLinkType,
+        DefaultLinkType
     };
     Q_ENUM(LinkType)
 
-    LinkConfig(QString &linkName,LinkType linkType);
+    LinkConfig(const QString &linkName);
 
     inline QString linkName(){return this->_linkName;}
     inline void setLinkName(QString &newLinkName) { if(newLinkName!="")  _linkName =newLinkName;}
+    //Needs to be implemented
+    virtual inline LinkType type()const =0 ;
 
-    inline LinkType linkType(){return this->_linkType;}
-    inline void setlinkType(LinkType newLinkType) {_linkType  = newLinkType;}
 
 signals:
 
 private:
    QString  _linkName;
-   LinkType _linkType;
-
 };
 
-typedef QSharedPointer<LinkConfig> LinkConfigPtr;
+typedef QSharedPointer<LinkConfig>    LinkConfigPtr;
 typedef QSharedPointer<LinkInterface> LinkInterfacePtr;
 
 #endif // LINKCONFIG_H
