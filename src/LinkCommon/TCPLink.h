@@ -10,7 +10,7 @@
 #include "LinkConfig.h"
 ///
 /// \brief The TCPLink class
-///TcpLink
+/// TcpLink
 ///
 class LinkConfig;
 class TCPLinkConfig : public LinkConfig
@@ -45,24 +45,22 @@ class TCPLink : public LinkInterface
 public:
     TCPLink(LinkConfigPtr &conf);
     ~TCPLink();
+    Q_INVOKABLE void disconnect (void)override{};
 
-    Q_INVOKABLE void   disconnect  (void){};
+    Q_INVOKABLE bool connect()override;
+    inline bool isConnected     (void)const override{return _socketIsConnected;}
 
-    bool isConnected    (void) const{return false;}
-
-signals:
-    void _readBytes ();
+    TCPLinkConfig * tcpConfig   (void)const {return this->_tcpConfig;}
 private slots:
-   void _writeBytes(const QByteArray data);
-   void _socketError   (QAbstractSocket::SocketError socketError);
-
+    void _readBytes   ();
+    void _writeBytes  (const QByteArray data)override;
+    void _socketError (QAbstractSocket::SocketError socketError);
 
 private:
-    //Needs to be implemented
-   bool _connect();
 
-   QTcpSocket *     _socket;
-   TCPLinkConfig *  _tcpConfig;
+    QTcpSocket *    _socket;
+    TCPLinkConfig * _tcpConfig;
+    bool _socketIsConnected;
 
 };
 

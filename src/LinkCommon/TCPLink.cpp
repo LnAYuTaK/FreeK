@@ -1,8 +1,8 @@
 #include "TCPLink.h"
 #include <QHostInfo>
 #include <QSignalSpy>
-#define DefaultHost "192.168.31.113"
-#define DefaultPort 8900
+#define DefaultHost "192.168.3.113"
+#define DefaultPort 8080
 TCPLinkConfig::TCPLinkConfig(const QString &LinkName)
     :LinkConfig(LinkName)
     ,_host(DefaultHost)
@@ -16,10 +16,11 @@ TCPLink::TCPLink(LinkConfigPtr &conf)
     : LinkInterface(conf)
     ,_socket(nullptr)
     ,_tcpConfig(qobject_cast<TCPLinkConfig *>(conf.data()))
+    ,_socketIsConnected(false)
 {
 
 }
-
+//----------------------------------------------
 TCPLink::~TCPLink()
 {
 
@@ -28,17 +29,42 @@ TCPLink::~TCPLink()
 void
 TCPLink::_writeBytes(const QByteArray data)
 {
-//   _socket.connectToHost(_tcpConfig->host(),_tcpConfig->port());
-//   if(_socket.waitForReadyRead(5)){
-//       _socket.write(data);
-//   }
+    if(_socket){
+        _socket->write(data);
+        emit bytesSend(this,data);
+    }
+}
+//----------------------------------------------
+
+
+
+
+//----------------------------------------------
+void
+TCPLink::_readBytes()
+{
+
+    qDebug()<<QThread::currentThreadId()<<"Main";
+
+    if (_socket) {
+        qint64 byteCount = _socket->bytesAvailable();
+
+        if (byteCount)
+        {
+            QByteArray buffer;
+            buffer.resize(byteCount);
+            _socket->read(buffer.data(), buffer.size());
+            //LinkInterface
+            emit bytesReceived(this, buffer);
+        }
+    }
 }
 //----------------------------------------------
 bool
-TCPLink::_connect()
+TCPLink::connect()
 {
     Q_ASSERT(_socket == nullptr);
-    _socket = new QTcpSocket();
+    _socket = new QTcpSocket(this);
     QObject::connect(_socket, &QIODevice::readyRead, this, &TCPLink::_readBytes);
 
     QSignalSpy errorSpy(_socket, &QAbstractSocket::errorOccurred);
@@ -56,8 +82,8 @@ TCPLink::_connect()
         _socket = nullptr;
         return false;
     }
-    //_socketIsConnected = true;
-    //emit connected();
+    _socketIsConnected = true;
+    emit connected();
     return true;
 }
 //----------------------------------------------

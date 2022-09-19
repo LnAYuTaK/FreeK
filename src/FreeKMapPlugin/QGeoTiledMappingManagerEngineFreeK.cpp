@@ -77,6 +77,7 @@ QGeoTiledMappingManagerEngineFreeK(
         :QGeoTiledMappingManagerEngine()
         ,tileCache(nullptr)
 {
+     Q_UNUSED(parameters)
      //parameters 就是QML中设置的 PluginParameter
      //地图视角相关设置，对应到 QML Map 类型的属性
      QGeoCameraCapabilities capabilities;

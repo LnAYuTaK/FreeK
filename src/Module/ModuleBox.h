@@ -11,6 +11,7 @@ class SettingsManager;
 class PositionManager;
 class MapEngineManager;
 class LinkManager;
+class MavLinkProtocol;
 ///
 /// \brief The ModuleBox class
 /// 统一接口管理所有插件
@@ -27,7 +28,8 @@ public:
     ViewPluginManager *   viewPluginManager() { return this->_viewPluginManager; }
     PositionManager *     positionManager()   { return this->_positionManager; }
     ViewSetup *           viewSetup()         { return this->_viewSetup; }
-    LinkManager *         linkManager()      { return this->_linkManager; }
+    LinkManager *         linkManager()       { return this->_linkManager; }
+    MavLinkProtocol *     mavLinkProtocol()   { return this->_mavLinkProtocol;}
 private:
     SettingsManager *     _settingsManager    = nullptr;
     LinkManager *         _linkManager        = nullptr;
@@ -35,10 +37,12 @@ private:
     ViewPluginManager *   _viewPluginManager  = nullptr;
     ViewSetup *           _viewSetup          = nullptr;
     PositionManager *     _positionManager    = nullptr;
+    MavLinkProtocol *     _mavLinkProtocol    = nullptr;
     //TUDO
     void checkModuleState();
 
 signals:
+
 };
 
 class Module : public QObject

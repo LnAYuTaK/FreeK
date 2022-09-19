@@ -2,14 +2,15 @@
 #define POSITIONMANAGER_H
 
 #include <QObject>
-#include "ModuleBox.h"
-
 #include <QGeoPositionInfoSource>
 #include <QNmeaPositionInfoSource>
+
+#include "ModuleBox.h"
+
 class FreeKApplication;
 ///
 /// \brief The PositonManager class
-///位置管理器  //可以获取地面站位置
+/// 位置管理器  //可以获取地面站位置
 ///
 class PositionManager : public Module
 {

@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QObject>
 #include <QQmlEngine>
+#include <QSettings>
 class QQmlApplicationEngine;
 class ModuleBox;
 class ScreenTool;

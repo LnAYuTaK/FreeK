@@ -7,6 +7,8 @@
 #include "FreeKQmlGlobal.h"
 #include "MapEngineManager.h"
 #include "PositionManager.h"
+
+
 FreeKApplication* FreeKApplication::_app = nullptr;
 FreeKApplication::FreeKApplication(int &argc, char* argv[])
    :QApplication(argc, argv)
@@ -17,7 +19,7 @@ FreeKApplication::FreeKApplication(int &argc, char* argv[])
      this->setApplicationName("FreeK");
      //实例化工具插件
      _moduleBox = new ModuleBox(this);
-     _moduleBox->setChildBoxes();
+     _moduleBox->setChildBoxes();   
 }
 //-----------------------------------------------------------------------------
 FreeKApplication::~FreeKApplication()

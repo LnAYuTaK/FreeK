@@ -1,9 +1,11 @@
 #include "LinkManager.h"
 #include "FreekApplication.h"
+#include "MavLinkProtocol.h"
 #include "TCPLink.h"
-
+#include <QThread>
 LinkManager::LinkManager(FreeKApplication *app , ModuleBox  * moduleBox)
     :Module(app,moduleBox)
+    , _mavLinkProtocol(nullptr)
 {
 
 }
@@ -11,7 +13,12 @@ LinkManager::LinkManager(FreeKApplication *app , ModuleBox  * moduleBox)
 void
 LinkManager::setModuleBox (ModuleBox  * moduleBox)
 {
-     _moduleBox = moduleBox;
+    _moduleBox       = moduleBox;
+    _mavLinkProtocol = FreeKApp()->moduleBox()->mavLinkProtocol();
+    //Example
+    QString path = "hello";
+    LinkConfigPtr ptr =this->_createLinkConf(path,LinkConfig::TCPLinkType);
+    _createLink(ptr);
 }
 //--------------------------------------------------------
 LinkConfigPtr
@@ -34,6 +41,7 @@ LinkManager::_createLink(LinkConfigPtr conf)
     switch (conf->type()) {
     case LinkConfig::TCPLinkType:
         link =QSharedPointer<TCPLink>(new TCPLink(conf));
+        qDebug() <<qobject_cast<TCPLink *>(link.data())->tcpConfig()->type();
         break;
 //    case LinkConfig::SerialLinkType:
 //        break;
@@ -45,6 +53,16 @@ LinkManager::_createLink(LinkConfigPtr conf)
         return false;
     }
     _LinkInterfaceList.append(link);
+    //Connect MavLinkProtocol Slots
+    if(!(link.data()->connect())) {
+        //HandleError
+    }
+    qDebug()<<QThread::currentThreadId()<<"Main";
+    QThread* thread = new QThread(this);
+    link->moveToThread(thread);
+    thread->start();
+    connect(link.data(),&LinkInterface::bytesSend,_mavLinkProtocol,&MavLinkProtocol::mavReceivedBytes);
+    connect(link.data(),&LinkInterface::bytesReceived,_mavLinkProtocol,&MavLinkProtocol::mavSendBytes);
     return true;
 }
 //--------------------------------------------------------

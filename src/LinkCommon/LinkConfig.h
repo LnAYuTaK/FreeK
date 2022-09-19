@@ -5,7 +5,7 @@
 class LinkInterface;
 ///
 /// \brief The LinkConfig class
-///所有连接配置的基类
+/// 连接配置的基类
 class LinkConfig : public QObject
 {
     Q_OBJECT
@@ -25,8 +25,6 @@ public:
     inline void setLinkName(QString &newLinkName) { if(newLinkName!="")  _linkName =newLinkName;}
     //Needs to be implemented
     virtual inline LinkType type()const =0 ;
-
-
 signals:
 
 private:
