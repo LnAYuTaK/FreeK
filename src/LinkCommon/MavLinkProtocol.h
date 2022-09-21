@@ -2,24 +2,19 @@
 #define MAVLINKPROTOCOL_H
 
 #include <QObject>
+#include <QThread>
 
-#include "ModuleBox.h"
-
-class FreeKApplication;
 class LinkInterface;
 ///
 /// \brief The MavLinkProtocol class
 /// MavLink协议解析
 ///
-class MavLinkProtocol : public Module
+class MavLinkProtocol : public QObject
 {
     Q_OBJECT
 public:
-    MavLinkProtocol(FreeKApplication *app , ModuleBox  * moduleBox);
-    void setModuleBox (ModuleBox  * moduleBox)override ;
-
+    MavLinkProtocol();
 signals:
-
 
 public slots:
     void mavReceivedBytes(LinkInterface* link, QByteArray data);

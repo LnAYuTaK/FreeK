@@ -12,8 +12,7 @@
 class FreeKApplication;
 class MavLinkProtocol;
 ///
-/// \brief The LinkManager class
-///负责生成并管理Link
+/// \brief 负责生成并管理Link
 ///
 class LinkManager : public Module
 {
@@ -28,12 +27,9 @@ private:
     //创建Link连接接口
     bool _createLink(LinkConfigPtr conf);
 
-    MavLinkProtocol *       _mavLinkProtocol;
+    ProtocolManager *       _protocolManager;
     QList<LinkConfigPtr>    _LinkConfigList;
     QList<LinkInterfacePtr> _LinkInterfaceList;
-
-
-
 };
 
 

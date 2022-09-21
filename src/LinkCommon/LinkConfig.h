@@ -4,8 +4,8 @@
 #include <QObject>
 class LinkInterface;
 ///
-/// \brief The LinkConfig class
-/// 连接配置的基类
+/// \brief 连接配置
+///
 class LinkConfig : public QObject
 {
     Q_OBJECT

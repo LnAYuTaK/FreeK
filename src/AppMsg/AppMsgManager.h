@@ -3,8 +3,9 @@
 
 #include <QObject>
 #include "ModuleBox.h"
-//全局消息传递
-//日志log模块
+///
+/// \brief 软件提示信息报错提示等
+///
 class FreeKApplication;
 class AppMsgManager : public Module
 {

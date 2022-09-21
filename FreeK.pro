@@ -11,6 +11,7 @@ QT += \
     quickwidgets \
     sql \
     svg \
+    serialport\
     widgets \
     xml \
     texttospeech \
@@ -44,6 +45,7 @@ SOURCES += \
     src/LinkCommon/LinkInterface.cpp \
     src/LinkCommon/LinkManager.cpp \
     src/LinkCommon/MavLinkProtocol.cpp \
+    src/LinkCommon/ProtocolManager.cpp \
     src/LinkCommon/SerialLink.cpp \
     src/LinkCommon/TCPLink.cpp \
     src/Map/MapEngine.cpp \
@@ -69,6 +71,7 @@ HEADERS += \
     src/LinkCommon/LinkInterface.h \
     src/LinkCommon/LinkManager.h \
     src/LinkCommon/MavLinkProtocol.h \
+    src/LinkCommon/ProtocolManager.h \
     src/LinkCommon/SerialLink.h \
     src/LinkCommon/TCPLink.h \
     src/Map/MapEngine.h \
@@ -96,8 +99,7 @@ include($$PWD/src/FreeKMapPlugin/FreeKMapPlugin.pri)
 LOCATION_PLUGIN_DESTDIR = $${OUT_PWD}/src/FreeMapPlugin
 LOCATION_PLUGIN_NAME    = GeoServiceProviderFactoryFreeK
 
-
-
+#
 #===================================
 #QML
 QML_IMPORT_PATH += $$PWD/src/QmlView

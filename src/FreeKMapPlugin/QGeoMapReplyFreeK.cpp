@@ -43,11 +43,7 @@
 ** Gus Grubba <gus@auterion.com>
 **
 ****************************************************************************/
-
-#include "MapEngine.h"
 #include "QGeoMapReplyFreeK.h"
-#include "QGeoTileFetcherFreeK.h"
-#include "MapTask.h"
 #include <QtLocation/private/qgeotilespec_p.h>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QFile>

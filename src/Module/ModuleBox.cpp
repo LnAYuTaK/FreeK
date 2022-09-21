@@ -6,12 +6,12 @@
 #include "PositionManager.h"
 #include "MapEngineManager.h"
 #include "LinkManager.h"
-#include "MavLinkProtocol.h"
+#include "ProtocolManager.h"
 ModuleBox::ModuleBox(FreeKApplication * app)
 {
     _settingsManager   = new   SettingsManager   (app,this);
     _linkManager       = new   LinkManager       (app,this);
-    _mavLinkProtocol   = new   MavLinkProtocol   (app,this);
+    _protocolManager   = new   ProtocolManager   (app,this);
     _mapEngineManager  = new   MapEngineManager  (app,this);
     _viewPluginManager = new   ViewPluginManager (app,this);
     _viewSetup         = new   ViewSetup         (app,this);
@@ -29,7 +29,7 @@ ModuleBox::setChildBoxes(void)
     _viewPluginManager->setModuleBox(this);
     _viewSetup->setModuleBox(this);
     _positionManager->setModuleBox(this);
-    _mavLinkProtocol->setModuleBox(this);
+    _protocolManager->setModuleBox(this);
 }
 
 //-----------------------------------------------------------------------------

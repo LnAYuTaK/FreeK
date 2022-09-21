@@ -12,7 +12,6 @@
 /// \brief The TCPLink class
 /// TcpLink
 ///
-class LinkConfig;
 class TCPLinkConfig : public LinkConfig
 {
     Q_OBJECT
@@ -29,6 +28,7 @@ public:
     inline void         setPort      (quint16 &port){ _port = port;}
 
     LinkConfig::LinkType  type()     const override{return this->_linkType;}
+
 signals:
     void portChanged(void);
     void hostChanged(void);
@@ -45,12 +45,13 @@ class TCPLink : public LinkInterface
 public:
     TCPLink(LinkConfigPtr &conf);
     ~TCPLink();
-    Q_INVOKABLE void disconnect (void)override{};
 
-    Q_INVOKABLE bool connect()override;
-    inline bool isConnected     (void)const override{return _socketIsConnected;}
+    Q_INVOKABLE void disconnect        () override{};
+    Q_INVOKABLE bool connect           () override;
 
-    TCPLinkConfig * tcpConfig   (void)const {return this->_tcpConfig;}
+    inline bool isConnected            () const override{return _socketIsConnected;}
+    inline TCPLinkConfig * tcpConfig   () {return this->_tcpConfig;}
+
 private slots:
     void _readBytes   ();
     void _writeBytes  (const QByteArray data)override;

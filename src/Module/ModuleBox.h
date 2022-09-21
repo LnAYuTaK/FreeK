@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "FreekApplication.h"
+#include "ModuleBox.h"
 class FreeKApplication;
 class Module;
 class ViewPluginManager;
@@ -11,7 +12,7 @@ class SettingsManager;
 class PositionManager;
 class MapEngineManager;
 class LinkManager;
-class MavLinkProtocol;
+class ProtocolManager;
 ///
 /// \brief The ModuleBox class
 /// 统一接口管理所有插件
@@ -29,7 +30,7 @@ public:
     PositionManager *     positionManager()   { return this->_positionManager; }
     ViewSetup *           viewSetup()         { return this->_viewSetup; }
     LinkManager *         linkManager()       { return this->_linkManager; }
-    MavLinkProtocol *     mavLinkProtocol()   { return this->_mavLinkProtocol;}
+    ProtocolManager *     protocolManager()   { return this->_protocolManager;}
 private:
     SettingsManager *     _settingsManager    = nullptr;
     LinkManager *         _linkManager        = nullptr;
@@ -37,7 +38,7 @@ private:
     ViewPluginManager *   _viewPluginManager  = nullptr;
     ViewSetup *           _viewSetup          = nullptr;
     PositionManager *     _positionManager    = nullptr;
-    MavLinkProtocol *     _mavLinkProtocol    = nullptr;
+    ProtocolManager *     _protocolManager    = nullptr;
     //TUDO
     void checkModuleState();
 

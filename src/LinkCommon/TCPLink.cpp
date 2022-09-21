@@ -5,8 +5,8 @@
 #define DefaultPort 8080
 TCPLinkConfig::TCPLinkConfig(const QString &LinkName)
     :LinkConfig(LinkName)
-    ,_host(DefaultHost)
-    ,_port(DefaultPort)
+    ,_host(DefaultHost)//获取Setting的值
+    ,_port(DefaultPort)//获取Setting的值
     ,_linkType(TCPLinkType)
 {
 
@@ -29,23 +29,15 @@ TCPLink::~TCPLink()
 void
 TCPLink::_writeBytes(const QByteArray data)
 {
-    if(_socket){
+    if(_socket) {
         _socket->write(data);
         emit bytesSend(this,data);
     }
 }
 //----------------------------------------------
-
-
-
-
-//----------------------------------------------
 void
 TCPLink::_readBytes()
 {
-
-    qDebug()<<QThread::currentThreadId()<<"Main";
-
     if (_socket) {
         qint64 byteCount = _socket->bytesAvailable();
 
@@ -55,6 +47,7 @@ TCPLink::_readBytes()
             buffer.resize(byteCount);
             _socket->read(buffer.data(), buffer.size());
             //LinkInterface
+            qDebug()<<QThread::currentThreadId()<<"WRITE";
             emit bytesReceived(this, buffer);
         }
     }
@@ -75,7 +68,6 @@ TCPLink::connect()
     if (!_socket->waitForConnected(1000))
     {
         if (errorSpy.count() == 0) {
-            //
             //emit communicationError(tr("Link Error"), tr("Error on link %1. Connection failed").arg(_config->name()));
         }
         _socket->deleteLater();

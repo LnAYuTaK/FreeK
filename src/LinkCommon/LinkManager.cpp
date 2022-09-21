@@ -3,9 +3,12 @@
 #include "MavLinkProtocol.h"
 #include "TCPLink.h"
 #include <QThread>
+#include "SerialLink.h"
+#include <QSharedPointer>
+#define MAVLINKPROTOCOL
 LinkManager::LinkManager(FreeKApplication *app , ModuleBox  * moduleBox)
     :Module(app,moduleBox)
-    , _mavLinkProtocol(nullptr)
+    , _protocolManager(nullptr)
 {
 
 }
@@ -14,7 +17,7 @@ void
 LinkManager::setModuleBox (ModuleBox  * moduleBox)
 {
     _moduleBox       = moduleBox;
-    _mavLinkProtocol = FreeKApp()->moduleBox()->mavLinkProtocol();
+    _protocolManager = FreeKApp()->moduleBox()->protocolManager();
     //Example
     QString path = "hello";
     LinkConfigPtr ptr =this->_createLinkConf(path,LinkConfig::TCPLinkType);
@@ -40,15 +43,18 @@ LinkManager::_createLink(LinkConfigPtr conf)
    LinkInterfacePtr link = nullptr;
     switch (conf->type()) {
     case LinkConfig::TCPLinkType:
-        link =QSharedPointer<TCPLink>(new TCPLink(conf));
-        qDebug() <<qobject_cast<TCPLink *>(link.data())->tcpConfig()->type();
+        link = QSharedPointer<TCPLink>(new TCPLink(conf));
         break;
-//    case LinkConfig::SerialLinkType:
-//        break;
+    case LinkConfig::SerialLinkType:
+        link = QSharedPointer<SerialLink>(new SerialLink(conf));
+        break;
 //    case LinkConfig::UDPLinkType:
 //        break;
 //    case LinkConfig::BlueToothLinkType:
 //        break;
+//    case LinkConfig::ModuleBusLinkType
+//        break
+
     default:
         return false;
     }
@@ -58,11 +64,15 @@ LinkManager::_createLink(LinkConfigPtr conf)
         //HandleError
     }
     qDebug()<<QThread::currentThreadId()<<"Main";
-    QThread* thread = new QThread(this);
-    link->moveToThread(thread);
-    thread->start();
-    connect(link.data(),&LinkInterface::bytesSend,_mavLinkProtocol,&MavLinkProtocol::mavReceivedBytes);
-    connect(link.data(),&LinkInterface::bytesReceived,_mavLinkProtocol,&MavLinkProtocol::mavSendBytes);
+    QThread* linkThread = new QThread(this);
+    link->moveToThread(linkThread);
+    linkThread->start();
+//暂时先实现MAVLINK
+#if defined(MAVLINKPROTOCOL)
+   // connect(link.data(),&LinkInterface::bytesSend,_mavLinkProtocol,&MavLinkProtocol::mavReceivedBytes);
+  //  connect(link.data(),&LinkInterface::bytesReceived,_mavLinkProtocol,&MavLinkProtocol::mavSendBytes);
+
+#endif
     return true;
 }
 //--------------------------------------------------------

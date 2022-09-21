@@ -14,8 +14,8 @@
 #include "LinkConfig.h"
 class LinkConfig;
 ///
-/// \brief The LinkInterface class
-/// 连接接口的基类
+/// \brief 连接接口的基类
+///
 class LinkInterface : public QObject
 {
     Q_OBJECT
@@ -34,7 +34,6 @@ signals:
     void bytesReceived      (LinkInterface* link, QByteArray data);
     void bytesSend          (LinkInterface* link, QByteArray data);
     void communicationError (const QString& title, const QString& error);
-
 
 protected:
     LinkInterface(LinkConfigPtr& config);

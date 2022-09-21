@@ -12,7 +12,7 @@ void
 MapEngineManager::setModuleBox(ModuleBox  *moduleBox)
 {
     _moduleBox = moduleBox;
-  // QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
+    QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
 
 }
 //-----------------------------------------------------------------------------
